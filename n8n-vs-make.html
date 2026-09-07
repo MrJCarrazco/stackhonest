@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>n8n vs Make (2026): Honest Comparison From Someone Running Both</title>
+<meta name="description" content="n8n vs Make in 2026 — real pricing math (executions vs operations), AI agent capability, failure modes in production, and who should pick which.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is n8n cheaper than Make?","acceptedAnswer":{"@type":"Answer","text":"At small scale Make is often cheaper because its free tier needs no server. At scale n8n wins decisively: per-execution pricing (or free self-hosting) means a complex workflow costs the same as a simple one, while Make bills every module operation."}},
+{"@type":"Question","name":"Which is better for AI agents, n8n or Make?","acceptedAnswer":{"@type":"Answer","text":"n8n. It has native AI agent nodes, LLM chains, memory, vector store integrations, and an MCP server so AI tools can build workflows for you. Make can call AI APIs but has no comparable agent framework."}},
+{"@type":"Question","name":"Can I migrate from Make to n8n?","acceptedAnswer":{"@type":"Answer","text":"There is no one-click migration, but rebuilding is fast in 2026: paste a screenshot or description of your Make scenario into Claude and ask for importable n8n JSON, then test each node. Most scenarios port in under an hour."}}
+]}</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="about.html">About</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>n8n vs Make (2026): I Run Both — Here's the Honest Breakdown</h1>
+<p class="meta">Last updated September 2026 · ~8 min read · by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every opinion here comes from actually running these tools — I will tell you when something is not worth your money.</div>
+<p>I have real workflows running on both platforms right now. This isn't a spec-sheet comparison — it's what actually matters after months of production use: pricing math, where each one breaks at 2 a.m., and which one to pick for AI work.</p>
+
+<h2>The 30-second answer</h2>
+<div class="verdict"><strong>Pick <a href="[AFFILIATE_LINK:n8n]">n8n</a></strong> if you're technical (or willing to become technical), want AI agents, or run high-volume workflows. <strong>Pick <a href="[AFFILIATE_LINK:make]">Make</a></strong> if you want the gentlest learning curve and your automations are simple and low-volume.</div>
+
+<h2>Pricing: the part that actually decides it</h2>
+<p>This is where every other comparison article gets lazy. The two platforms don't just have different prices — they have different <em>units</em>:</p>
+<table>
+<tr><th></th><th>n8n</th><th>Make</th></tr>
+<tr><td>Billing unit</td><td>Workflow <strong>execution</strong> (one run, any size)</td><td><strong>Operation</strong> (every module, every run)</td></tr>
+<tr><td>Free option</td><td>Self-hosted: unlimited, forever</td><td>1,000 ops/month cloud</td></tr>
+<tr><td>Entry paid</td><td>~$24/mo cloud (2.5k executions)</td><td>~$9/mo (10k ops)</td></tr>
+<tr><td>A 30-step workflow, 1,000 runs/mo</td><td>1,000 executions</td><td>30,000 operations</td></tr>
+</table>
+<p>Read that last row again. The same automation consumes 1,000 units on n8n and 30,000 on Make. Simple 3-step zaps? Make is cheap. AI agent doing research-draft-review-post? Make's meter spins like a slot machine.</p>
+
+<h2>Learning curve</h2>
+<p>Make wins the first week. Its scenario builder is friendlier, errors are gentler, and the module library holds your hand. n8n used to lose people here — but the 2026 workaround changed the game: <strong>you don't have to build n8n workflows by hand anymore</strong>. Claude (or n8n's own MCP server) generates complete importable workflow JSON from a plain-English description. My honest advice: let AI write the first version, then learn by fixing it.</p>
+
+<h2>AI capability — not close</h2>
+<p>n8n has native AI Agent nodes: tool-calling, memory, LLM chains, vector stores, and an MCP server that lets AI assistants build and modify your workflows conversationally. Make can call OpenAI/Claude APIs like any HTTP client, but there's no agent framework. If "AI automation" is why you're here, this section alone decides it: <a href="[AFFILIATE_LINK:n8n]">n8n</a>.</p>
+
+<h2>Where each one breaks (production scars)</h2>
+<h3>n8n's failure modes</h3>
+<ul>
+<li>Self-hosted = you're on call. A crashed container at midnight is your problem. (Mitigation: an error-trigger workflow that pings your phone — in my <a href="free-n8n-templates.html">free pack</a>.)</li>
+<li>Community nodes can lag behind core upgrades. Pin versions; upgrade deliberately.</li>
+<li>Memory usage grows with big JSON payloads — batch large datasets.</li></ul>
+<h3>Make's failure modes</h3>
+<ul>
+<li>Operation limits creep up on you — a webhook storm can burn a month's quota in an hour.</li>
+<li>Complex branching becomes unreadable spaghetti; there's no "code node" escape hatch as capable as n8n's.</li>
+<li>Scenario history retention is short on cheap plans — debugging yesterday's failure can be impossible.</li></ul>
+
+<h2>Self-hosting: n8n's trump card</h2>
+<p>n8n is source-available and runs on anything — an old laptop, a $5 VPS, a Raspberry Pi. Your data never leaves your machine (matters for client work and anything with PII). Make has no self-hosted option at any price.</p>
+
+<h2>The verdict, by person</h2>
+<table>
+<tr><th>You are…</th><th>Pick</th></tr>
+<tr><td>Building AI agents or multi-step LLM pipelines</td><td><a href="[AFFILIATE_LINK:n8n]">n8n</a></td></tr>
+<tr><td>Non-technical, simple linear automations</td><td><a href="[AFFILIATE_LINK:make]">Make</a></td></tr>
+<tr><td>Budget = $0, comfort with a terminal</td><td>n8n self-hosted</td></tr>
+<tr><td>High-volume anything</td><td><a href="[AFFILIATE_LINK:n8n]">n8n</a> — the pricing math is brutal on Make</td></tr>
+<tr><td>Agency building for clients</td><td>n8n (self-host per client, or cloud) — it's what you can resell</td></tr>
+</table>
+
+<h2>FAQ</h2>
+<h3>Is n8n cheaper than Make?</h3><p>At tiny scale, Make. At any real scale, n8n — per-execution beats per-operation the moment workflows get complex.</p>
+<h3>Which is better for AI agents?</h3><p>n8n, by a wide margin: native agent nodes, memory, vector stores, MCP.</p>
+<h3>Can I migrate from Make to n8n?</h3><p>No one-click path, but Claude can rebuild most scenarios as importable n8n JSON from a screenshot in under an hour.</p>
+<p>Next read: <a href="best-ai-automation-tools.html">Best AI Automation Tools in 2026</a> · Get working starter workflows: <a href="free-n8n-templates.html">free n8n template pack</a>.</p>
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest — AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
