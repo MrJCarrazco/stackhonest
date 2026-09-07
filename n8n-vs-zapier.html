@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>n8n vs Zapier (2026): The Pricing Math Nobody Shows You</title>
+<meta name="description" content="n8n vs Zapier compared by someone who moved off Zapier: real pricing math (tasks vs executions), AI agent capability, where each breaks, and who should pick which.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Is n8n cheaper than Zapier?","acceptedAnswer":{"@type":"Answer","text":"Almost always at real volume. Zapier bills per task — every step of every run. n8n bills per execution (one run of a workflow, regardless of steps), and self-hosted n8n is free with unlimited runs. A 10-step workflow running 1,000 times a month consumes about 10,000 Zapier tasks but only 1,000 n8n executions — or zero dollars self-hosted."}},
+{"@type":"Question","name":"Is Zapier easier to use than n8n?","acceptedAnswer":{"@type":"Answer","text":"Yes. Zapier remains the gentlest on-ramp in automation: clean UI, enormous app directory, great error messages. n8n's curve is steeper, but in 2026 you can have Claude or n8n's MCP server generate complete workflows from a plain-English description, which erases most of the difficulty."}},
+{"@type":"Question","name":"Which is better for AI automation, n8n or Zapier?","acceptedAnswer":{"@type":"Answer","text":"n8n. It has native AI Agent nodes with tool-calling, memory, LLM chains, and vector store integrations. Zapier has AI features and can call AI APIs, but per-task pricing punishes exactly the multi-step AI workflows you'd want to build."}},
+{"@type":"Question","name":"Should I switch from Zapier to n8n?","acceptedAnswer":{"@type":"Answer","text":"Switch if your Zapier bill exceeds roughly $50/mo, you're hitting task limits, or you want AI agents. Stay if you run a handful of simple low-volume zaps and your time is worth more than the subscription. Migration is describing each zap to Claude and importing the generated n8n workflow — most stacks move in a weekend."}}
+]}</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="about.html">About</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>n8n vs Zapier (2026): The Pricing Math Nobody Shows You</h1>
+<p class="meta">Last updated September 2026 · ~9 min read · by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every opinion here comes from actually running these tools — I will tell you when something is not worth your money.</div>
+
+<p><strong>Short answer:</strong> Zapier is the easiest automation tool ever made and n8n is the most cost-efficient one, and the gap comes down to one word: <em>units</em>. Zapier bills every step of every run as a "task"; n8n bills one "execution" per run no matter how many steps — and self-hosted n8n is free with unlimited runs. If you run simple, low-volume zaps, keep Zapier. If you run anything multi-step, high-volume, or AI-powered, n8n wins on cost by an order of magnitude.</p>
+
+<h2>The 30-second answer</h2>
+<div class="verdict"><strong>Pick <a href="https://n8n.io/">n8n</a></strong> if you're willing to learn a slightly steeper tool (or let AI build your workflows), want AI agents, or your Zapier bill has ever made you wince. <strong>Pick <a href="https://zapier.com/">Zapier</a></strong> if you're non-technical, your automations are 2-4 steps, and they run a few hundred times a month.</div>
+
+<h2>Pricing: the part that actually decides it</h2>
+<p>I moved my own stack off Zapier, and the reason fits in one table:</p>
+<table>
+<tr><th></th><th>n8n</th><th>Zapier</th></tr>
+<tr><td>Billing unit</td><td>Workflow <strong>execution</strong> (one run, any number of steps)</td><td><strong>Task</strong> (every action step, every run)</td></tr>
+<tr><td>Free option</td><td>Self-hosted: unlimited runs, forever</td><td>~100 tasks/month, 2-step zaps</td></tr>
+<tr><td>Entry paid</td><td>~$24/mo cloud (2,500 executions)</td><td>~$20-30/mo (750 tasks)</td></tr>
+<tr><td>A 10-step workflow, 1,000 runs/mo</td><td>1,000 executions (or $0 self-hosted)</td><td>~10,000 tasks — a mid-tier plan</td></tr>
+</table>
+<p>Read that last row again. The identical automation consumes 10x the billable units on Zapier — and Zapier's own free tier caps out at a number a single busy workflow can burn through in a morning. This is the same units trap I covered in <a href="n8n-vs-make.html">n8n vs Make</a>: per-step pricing quietly punishes exactly the workflows worth building. Pricing shifts, so verify on both vendors' pages — but the <em>unit definitions</em> are the structural fact, and those haven't changed in years.</p>
+
+<h2>Ease of use: Zapier wins the first week</h2>
+<p>Credit where due — Zapier's editor is the best onboarding in the industry. Trigger, action, done. Error messages tell you what to fix. The app directory (7,000+ integrations) means the thing you use almost certainly connects. If you've never automated anything, a Zapier free account is a great first afternoon.</p>
+<p>n8n used to lose people at this exact point: nodes, expressions, JSON — it looks like a developer tool because it partly is one. But 2026 changed the equation: <strong>you don't hand-build n8n workflows anymore.</strong> Describe what you want to Claude ("watch this inbox, extract invoice data, append to this sheet, Slack me a summary") and it emits complete importable workflow JSON. n8n also ships an MCP server so AI assistants can build and modify workflows directly in your instance. My honest advice: let AI write version one, then learn the tool by fixing and extending it. That's how I learned, and I came from factory work, not software.</p>
+
+<h2>AI capability: not close</h2>
+<p>n8n has native AI Agent nodes — tool-calling, memory, LLM chains, vector stores — so you can build an agent that researches, drafts, reviews, and posts as one workflow. Zapier has added AI features and can call any AI API, but there's no comparable agent framework, and here's the killer: <strong>per-task billing punishes AI workflows specifically</strong>, because they're long. A 15-step agent pipeline on Zapier bills 15 tasks per run. The economics push you away from the very automations that matter most right now. This is a big part of why n8n tops my <a href="best-ai-automation-tools.html">best AI automation tools</a> list.</p>
+
+<h2>Where each one breaks (production scars)</h2>
+<h3>Zapier's failure modes</h3>
+<ul>
+<li><strong>Bill shock.</strong> A retry loop or an unexpectedly busy trigger can eat your monthly task quota in hours. I've watched a runaway zap burn a month's allowance overnight.</li>
+<li><strong>Multi-step logic gets awkward.</strong> Paths and filters work, but complex branching turns into a chain of zaps passing data through storage — fragile and hard to debug.</li>
+<li><strong>You can't self-host.</strong> Your workflows, your data flow, their cloud. Fine for most; a dealbreaker for some.</li>
+</ul>
+<h3>n8n's failure modes</h3>
+<ul>
+<li><strong>Self-hosted means you're the ops team.</strong> A crashed container at midnight is your problem. First thing to install: an error-trigger workflow that pings your phone — it's in my <a href="free-n8n-templates.html">free template pack</a>.</li>
+<li><strong>Fewer polished integrations.</strong> ~500+ native nodes vs Zapier's thousands. The HTTP Request node covers anything with an API, but that's more work than clicking a Zapier app tile.</li>
+<li><strong>The learning curve is real</strong> — mitigated by AI-generated workflows, but not zero.</li>
+</ul>
+
+<h2>Migration: what moving off Zapier actually looks like</h2>
+<p>There's no import button, but the 2026 method is fast: open each zap, describe it in plain English to Claude (or screenshot it), ask for importable n8n JSON, import, connect credentials, test. Simple zaps port in minutes; my whole stack moved in a weekend. Start with your highest-volume zap — that's where the savings live — and run both in parallel for a week before switching the trigger off.</p>
+
+<h2>Who should pick which</h2>
+<ul>
+<li><strong>Non-technical, few simple automations, low volume:</strong> Zapier. The subscription is cheaper than your learning time.</li>
+<li><strong>Anyone paying Zapier $50+/mo:</strong> n8n. Your bill is the tuition for a weekend migration.</li>
+<li><strong>AI agents and multi-step pipelines:</strong> n8n, decisively.</li>
+<li><strong>Selling automations to clients:</strong> n8n — unlimited self-hosted runs mean your delivery costs don't scale with client volume. More on that in <a href="sell-ai-automation-services.html">how to sell AI automation services</a>.</li>
+</ul>
+
+<h2>FAQ</h2>
+<h3>Is n8n really free?</h3>
+<p>Self-hosted, yes — unlimited workflows and runs on your own machine or a ~$5/mo VPS. n8n cloud is paid with a trial. The free tier isn't a teaser; it's the full product with you doing the hosting.</p>
+<h3>Can Zapier do AI agents?</h3>
+<p>It can call AI models and has AI-assisted features, but it has no native agent framework with memory and tool-calling like n8n's — and per-task pricing makes long AI pipelines expensive by design.</p>
+<h3>What about Make?</h3>
+<p>Make sits between them: cheaper than Zapier, friendlier than n8n, but per-operation billing has the same structural trap as Zapier's tasks. Full breakdown in <a href="n8n-vs-make.html">n8n vs Make</a>.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest — AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>

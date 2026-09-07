@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Best Free n8n Templates (2026): 2,000+ Workflows Worth Importing (And How to Vet Them)</title>
+<meta name="description" content="Where to find the best free n8n templates in 2026 — the 2,000-workflow GitHub repo, n8n's official library, and a vetting checklist so imported workflows actually run.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"Where can I find free n8n templates?","acceptedAnswer":{"@type":"Answer","text":"Three main sources: n8n's official template library (n8n.io/workflows, thousands of community templates importable in one click), the Zie619/n8n-workflows GitHub repo (2,000+ workflows scraped from across the ecosystem), and curated packs from practitioners who actually run them in production."}},
+{"@type":"Question","name":"Are free n8n templates safe to use?","acceptedAnswer":{"@type":"Answer","text":"Mostly, but always review before running: check every HTTP Request node's target URL, inspect Code nodes for anything that transmits data externally, replace all embedded credentials with your own, and run first against test data. A template is someone else's code — treat it like code."}},
+{"@type":"Question","name":"How do I import a template into n8n?","acceptedAnswer":{"@type":"Answer","text":"From the official library, click 'Use workflow' to open it in your instance. From a JSON file, open a new workflow and choose Import from File (or paste the JSON directly). Then connect your own credentials to each node, run once manually with test data, and only then activate the trigger."}},
+{"@type":"Question","name":"Can AI build n8n workflows instead of templates?","acceptedAnswer":{"@type":"Answer","text":"Yes — describing the workflow to Claude and asking for importable n8n JSON often beats hunting for a template, because the output matches your exact apps and fields. Templates are best as proven starting structures; AI is best for customization. The strongest method combines both: import a proven template, then have AI modify it."}}
+]}</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="about.html">About</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>Best Free n8n Templates (2026): 2,000+ Workflows Worth Importing</h1>
+<p class="meta">Last updated September 2026 · ~8 min read · by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every opinion here comes from actually running these tools — I will tell you when something is not worth your money.</div>
+
+<p><strong>Short answer:</strong> the best free n8n templates live in three places — n8n's <a href="https://n8n.io/workflows/">official template library</a> (thousands, one-click import), the community-famous <a href="https://github.com/Zie619/n8n-workflows">Zie619 GitHub repo</a> (2,000+ workflows scraped from across the ecosystem), and small curated packs from people who run them in production, like <a href="free-n8n-templates.html">my free starter pack</a>. The catch nobody mentions: most free templates don't run as-imported. The value is the structure; the skill is the 20 minutes of vetting and wiring. This guide covers both.</p>
+
+<h2>The three sources, ranked</h2>
+
+<h3>1. n8n's official template library — best for one-click starts</h3>
+<p>n8n.io/workflows hosts thousands of community-submitted templates, searchable by app and category, importable directly into your instance. Quality varies from production-grade to someone's weekend experiment, but the browsing experience is the best of the three, and templates published there at least render correctly in current n8n versions. Start here when you know which app you're automating around ("Gmail," "Google Sheets," "Telegram").</p>
+
+<h3>2. The Zie619 repo — best for sheer coverage</h3>
+<p>A community legend scraped every findable n8n workflow into one GitHub repo: <a href="https://github.com/Zie619/n8n-workflows">github.com/Zie619/n8n-workflows</a> — 2,000+ JSON files spanning e-commerce, social schedulers, lead gen, CRM sync, Slack and Discord bots, content pipelines. It's the single highest-leverage free resource in the n8n ecosystem. Clone it once and grep locally instead of browsing: <code>git clone</code>, then search filenames for your app or use-case. Expect to update node versions on older files — n8n prompts you on import.</p>
+
+<h3>3. Curated practitioner packs — best signal-to-noise</h3>
+<p>Two thousand workflows is a library, not a starting point. What actually got me moving was a handful of workflows that do real work. That's why my <a href="free-n8n-templates.html">free template pack</a> is five, not five hundred: a lead scraper → sheet → personalized outreach pipeline, a missed-call text-back (the automation local businesses pay $500/mo for), an AI content pipeline, an error-trigger alert workflow, and my Claude-as-n8n-builder prompt. Every one runs in my own stack. Small and tested beats big and maybe.</p>
+
+<h2>The 5 templates every n8n install needs first</h2>
+<ul>
+<li><strong>Error-trigger alert.</strong> Before anything else. When any workflow fails, you get a Telegram/SMS ping. Without this, self-hosted automation fails silently and you find out from an angry customer.</li>
+<li><strong>Lead scraper → Google Sheet → personalized first line.</strong> The front end of any client pipeline — scrape, enrich, draft outreach, review, send.</li>
+<li><strong>Missed-call text-back.</strong> Caller hits voicemail → instant SMS: "Sorry we missed you — what do you need?" Trivial to build, absurdly valuable to local businesses.</li>
+<li><strong>AI content pipeline.</strong> Idea queue in a sheet → Claude drafts → scheduled post. The pattern behind every "faceless content" operation you've seen.</li>
+<li><strong>Daily digest with a dedup log.</strong> Research agent → email digest → a sheet logging every item already sent, checked each run so the digest never repeats itself. The dedup-log trick generalizes to any recurring report.</li>
+</ul>
+
+<h2>How to vet a template before you run it (the checklist)</h2>
+<p>A template is someone else's code running with your credentials. Treat it accordingly:</p>
+<ul>
+<li><strong>Open every HTTP Request node</strong> and read the URL. It should point only at services you recognize.</li>
+<li><strong>Read every Code node.</strong> You're looking for anything that sends data somewhere unexpected. Paste it into Claude and ask "does this transmit data externally?" if you can't read JavaScript.</li>
+<li><strong>Strip embedded credentials and IDs</strong> — sheet IDs, webhook URLs, API keys — and replace with your own.</li>
+<li><strong>Run manually against test data first.</strong> A dummy row, a test inbox. Only activate the trigger after a clean manual run.</li>
+<li><strong>Pin it to a version.</strong> Note which n8n version it worked on; community nodes can lag core upgrades.</li>
+</ul>
+
+<h2>Templates vs AI-generated workflows: the 2026 answer</h2>
+<p>Here's what's changed: describing a workflow to Claude and asking for importable n8n JSON now often beats template hunting, because the output matches <em>your</em> apps and field names instead of someone else's. The strongest method is the combination — import a proven template for structure, then tell the AI "modify this to use my CRM and add a Slack approval step." n8n's MCP server pushes this further by letting AI assistants build directly in your instance. My exact builder prompt is in the <a href="free-n8n-templates.html">free pack</a>. And if you're still choosing a platform at all, the pricing math in <a href="n8n-vs-zapier.html">n8n vs Zapier</a> and <a href="n8n-vs-make.html">n8n vs Make</a> explains why templates-plus-self-hosting is such a cheat code: unlimited runs mean a good template costs literally nothing to operate.</p>
+
+<h2>Don't have n8n running yet?</h2>
+<p>Self-hosted is free forever — an old laptop or a ~$5/mo VPS runs it fine — or <a href="https://n8n.io/">n8n cloud</a> if you'd rather not babysit a server. My <a href="best-ai-automation-tools.html">best AI automation tools guide</a> covers where n8n fits in the full stack, from $0 up.</p>
+
+<h2>FAQ</h2>
+<h3>Where are the best free n8n templates?</h3>
+<p>n8n.io/workflows for browsing, the Zie619 GitHub repo for coverage, curated practitioner packs for quality. Start with a tested pack of five, not a library of two thousand.</p>
+<h3>Why doesn't my imported template work?</h3>
+<p>Ninety percent of the time: credentials not connected, node versions outdated, or hardcoded IDs still pointing at the author's accounts. Work through the vetting checklist above — it doubles as a debugging checklist.</p>
+<h3>Can I sell workflows I build from free templates?</h3>
+<p>Generally yes — configured, deployed instances of open workflows are exactly what clients pay for. They're not buying JSON; they're buying it running reliably against their systems. That business model is the subject of <a href="sell-ai-automation-services.html">how to sell AI automation services</a>.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest — AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> · <a href="about.html">About</a> · <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
