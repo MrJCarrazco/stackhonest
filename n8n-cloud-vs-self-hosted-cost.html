@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>n8n Cloud vs Self-Hosted (2026): Real Cost Comparison</title>
+<meta name="description" content="n8n Cloud starts at 24 dollars/mo, self-hosted runs 5-9 dollars/mo with unlimited executions -- verified Sep 2026 pricing, real trade-offs, no hype.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How much does n8n cost in 2026?","acceptedAnswer":{"@type":"Answer","text":"n8n Cloud Starter is 24 dollars per month (20 dollars per month billed annually) for 2,500 executions per month, and Pro is 60 dollars per month (50 dollars per month annually) for 10,000 executions. Self-hosting the free Community Edition costs only your server: 5 to 6 dollars per month on a raw VPS like Hetzner, or 3.70 to 9 dollars per month on a managed platform, with unlimited executions and unlimited workflows either way."}},
+{"@type":"Question","name":"Is n8n Cloud worth it over self-hosting?","acceptedAnswer":{"@type":"Answer","text":"n8n Cloud is worth it if you want zero server maintenance, automatic updates, and do not want to touch Docker or SSH -- you trade money for time. Self-hosting is worth it once you exceed the Cloud Starter 2,500 execution cap regularly, since a 5 to 6 dollar VPS gives you unlimited executions and saves 200 to 700 dollars a year for solo builders and small teams willing to spend an hour on setup."}},
+{"@type":"Question","name":"Can I run n8n for free?","acceptedAnswer":{"@type":"Answer","text":"Yes. n8n Community Edition (self-hosted) is free, open-source software with no license fee and unlimited workflows and executions -- you only pay for the server it runs on, which can be as low as 4 to 6 dollars a month on a budget VPS. n8n Cloud has no permanent free tier, only a limited trial."}}
+]}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="about.html">About</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+<h1>n8n Cloud vs Self-Hosted (2026): Real Cost Comparison</h1>
+<p class="meta">Last updated September 2026 &middot; ~8 min read &middot; by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every number here comes from checking n8n own pricing page and cross-checking VPS costs directly, and I will tell you when the cheaper option is not actually cheaper once you count your time.</div>
+
+<p><strong>Short answer:</strong> n8n Cloud Starter is 24 dollars per month (20 dollars per month billed annually) for 2,500 executions, and Pro is 60 dollars per month (50 dollars per month annually) for 10,000 executions. Self-hosting the same open-source software costs only your server -- 5 to 6 dollars per month on a raw Hetzner VPS, or 4 to 9 dollars per month on a managed host -- with unlimited executions and unlimited workflows on every tier. If you run more than a couple thousand executions a month, self-hosting saves real money. If you never want to touch a terminal, Cloud is worth paying for.</p>
+
+<h2>The 30-second answer</h2>
+<div class="verdict"><strong>Get <a href="https://n8n.io/pricing/">n8n Cloud</a></strong> if you want zero maintenance, automatic updates, and do not want to manage a server. <strong>Self-host n8n</strong> on a 5-6 dollar/mo VPS if you run more than a light workload and are willing to spend 30-60 minutes on setup and occasional updates.</div>
+
+<h2>Pricing: verified against n8n.io/pricing, September 2026</h2>
+<p>I checked n8n.io/pricing directly. n8n Cloud has three tiers: Starter at 24 dollars per month (20 dollars per month billed annually) for 2,500 executions per month, Pro at 60 dollars per month (50 dollars per month annually) for 10,000 executions, and Business at roughly 800 dollars per month (about 667 dollars per month annually) for 40,000 executions, plus a custom Enterprise tier above that. All Cloud tiers now include unlimited workflows and unlimited users -- you are only paying for execution volume. Note n8n prices in euros first (24 euros Starter, 60 euros Pro), so your actual dollar charge moves slightly with the exchange rate.</p>
+<p>Self-hosting n8n Community Edition costs nothing in software -- it is free, open-source, with no license fee and unlimited executions regardless of volume. What you pay for is the server: a raw VPS on Hetzner runs about 5 to 6 dollars per month after Hetzner mid-2026 price increase (the old 4 dollar box advice is stale), and managed one-click platforms built specifically for n8n hosting run 3.70 to 9 dollars per month depending on the provider and plan. Either way you get unlimited workflows, unlimited executions, and unlimited users without an upgrade tier.</p>
+<table>
+<tr><th></th><th>n8n Cloud</th><th>Self-Hosted</th></tr>
+<tr><td>Starter cost</td><td>24 dollars/mo (20/mo annual), 2,500 executions</td><td>5-6 dollars/mo (raw VPS), unlimited executions</td></tr>
+<tr><td>Mid tier</td><td>60 dollars/mo (50/mo annual), 10,000 executions</td><td>Same server cost, no execution tiers</td></tr>
+<tr><td>One workflow every 5 min</td><td>~8,640 executions/mo -- blows past Starter cap</td><td>No cap, no overage</td></tr>
+<tr><td>Setup time</td><td>~2 minutes</td><td>30-60 minutes (Docker + VPS)</td></tr>
+<tr><td>Maintenance</td><td>None, automatic updates</td><td>You handle OS/Docker/n8n updates, backups, SSL</td></tr>
+<tr><td>Data location</td><td>n8n servers</td><td>Your server, your choice of region</td></tr>
+<tr><td>Annual cost, light use</td><td>~240-288 dollars/yr (Starter)</td><td>~60-72 dollars/yr (VPS)</td></tr>
+</table>
+<p>These are list prices as of this article publish date -- confirm current tiers on <a href="https://n8n.io/pricing/">n8n.io/pricing</a> before you commit, and check current VPS pricing directly with your chosen host since VPS prices move with hardware and currency shifts.</p>
+<h2>Learning curve / ease of use</h2>
+<p>n8n Cloud has no learning curve beyond n8n itself -- you sign up, get a URL, and start building workflows in about 2 minutes. Self-hosting adds a real setup step: you need basic comfort with Docker Compose or a one-click installer, a domain if you want a clean URL, and you are responsible for applying n8n version updates yourself (they do not break often, but they do happen). If you have never touched a VPS before, budget an evening the first time, not the 30 minutes the marketing pages promise.</p>
+
+<h2>Capability deep-dive: what changes technically</h2>
+<p>Functionally, n8n Cloud and self-hosted n8n run the same workflow engine -- the same nodes, the same AI agent capabilities, the same triggers. The real difference is operational, not functional. Cloud gives you automatic scaling and n8n own uptime guarantees; self-hosted gives you full control over data residency (useful if a client requires EU-only or on-prem data handling) and SSH access to debug directly on the box when something goes wrong. Community nodes -- third-party integrations built by the n8n community -- are more straightforward to install self-hosted; Cloud restricts some community node installs for security reasons.</p>
+
+<h2>Where each one breaks in production</h2>
+<ul>
+<li><strong>n8n Cloud:</strong> the execution math bites fast. One webhook-triggered workflow firing every 5 minutes alone burns roughly 8,640 executions a month, blowing past the Starter 2,500 cap in about 11 days. Teams running several active workflows end up paying overage fees or forced into the 60 dollar Pro tier just to stay under the ceiling.</li>
+<li><strong>Self-hosted:</strong> you are the sysadmin. If your VPS goes down at 2am, so does every automation depending on it, and there is no support line to call. Backups, SSL renewal, and Docker/n8n version upgrades are all on you -- skip them long enough and you risk a broken instance or a security gap.</li>
+</ul>
+
+<h2>Verdict by user type</h2>
+<table>
+<tr><th>You are...</th><th>Pick</th></tr>
+<tr><td>Testing n8n for the first time, low volume, want zero setup</td><td><a href="https://n8n.io/pricing/">n8n Cloud</a> Starter</td></tr>
+<tr><td>Running more than ~2,500 executions/mo consistently</td><td>Self-hosted on a 5-6 dollar VPS</td></tr>
+<tr><td>Solo builder or small team, cost-conscious, comfortable with Docker</td><td>Self-hosted (Hetzner or similar)</td></tr>
+<tr><td>Need EU-only or on-prem data residency for a client</td><td>Self-hosted, choose your own region</td></tr>
+<tr><td>Never want to manage a server, budget is not the constraint</td><td><a href="https://n8n.io/pricing/">n8n Cloud</a> Pro</td></tr>
+</table>
+<p>My own read: for anyone running more than a light, occasional workflow, self-hosting on a 5-6 dollar VPS pays for itself within the first month compared to Cloud Starter, and the setup time is a one-time cost, not a recurring one. I only recommend Cloud to people who genuinely will not touch a terminal, or who need n8n own SLA for a client-facing system where downtime is not an option.</p>
+<div class="verdict"><strong>Try <a href="https://n8n.io/pricing/">n8n Cloud</a></strong> free trial first to learn the tool with zero setup. <strong>Move to self-hosted</strong> on a cheap VPS once you know you will use it regularly and want to stop worrying about execution caps.</div>
+
+<h2>FAQ</h2>
+<h3>How much does n8n cost in 2026?</h3>
+<p>n8n Cloud Starter is 24 dollars per month (20 dollars per month billed annually) for 2,500 executions per month, and Pro is 60 dollars per month (50 dollars per month annually) for 10,000 executions. Self-hosting the free Community Edition costs only your server: 5 to 6 dollars per month on a raw VPS like Hetzner, or 3.70 to 9 dollars per month on a managed platform, with unlimited executions and unlimited workflows either way.</p>
+<h3>Is n8n Cloud worth it over self-hosting?</h3>
+<p>n8n Cloud is worth it if you want zero server maintenance, automatic updates, and do not want to touch Docker or SSH -- you are trading money for time. Self-hosting is worth it once you exceed the Cloud Starter 2,500 execution cap regularly, since a 5 to 6 dollar VPS gives you unlimited executions and saves 200 to 700 dollars a year for solo builders and small teams willing to spend an hour on setup.</p>
+<h3>Can I run n8n for free?</h3>
+<p>Yes. n8n Community Edition (self-hosted) is free, open-source software with no license fee and unlimited workflows and executions -- you only pay for the server it runs on, which can be as low as 4 to 6 dollars a month on a budget VPS. n8n Cloud has no permanent free tier, only a limited trial. See my <a href="best-ai-automation-tools.html">best AI automation tools</a> guide for more free-first picks across categories.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest -- AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links, if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
