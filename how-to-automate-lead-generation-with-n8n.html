@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Automate Lead Generation with n8n (2026 Step-by-Step)</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/how-to-automate-lead-generation-with-n8n.html">
+<meta name="description" content="Step-by-step: build a free n8n workflow that captures a form lead, pushes it to your CRM, and fires an instant text-back -- no Zapier task fees, verified Sep 2026 setup and pricing.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I automate lead generation with n8n?","acceptedAnswer":{"@type":"Answer","text":"Build a workflow with a webhook or form trigger to catch the lead, an HTTP Request or CRM node to push the contact into your CRM, and a condition plus messaging node (Twilio, WhatsApp, or email) to fire an instant follow-up. n8n's built-in Form trigger node means you often do not need a separate form tool at all."}},
+{"@type":"Question","name":"Is n8n free for lead generation automation?","acceptedAnswer":{"@type":"Answer","text":"Yes if you self-host -- the Community Edition is free open-source software with unlimited workflows and executions, and your only cost is a small VPS around 5 to 6 dollars a month. n8n Cloud starts at 20 dollars a month annually for 2,500 executions, which is plenty for most solo lead-gen setups but can run out fast if your trigger fires on a tight schedule."}},
+{"@type":"Question","name":"What is the fastest way to get a lead-gen workflow running today?","acceptedAnswer":{"@type":"Answer","text":"Import a pre-built template from n8n's own template library (search 'lead capture' or 'form to CRM') instead of building from a blank canvas -- most get you a working skeleton in under 10 minutes, though expect to rewire one or two nodes if the template references an API version that has since changed."}}
+]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Automate Lead Generation with n8n (2026 Step-by-Step)">
+<meta property="og:description" content="Step-by-step: build a free n8n workflow that captures a form lead, pushes it to your CRM, and fires an instant text-back -- no Zapier task fees, verified Sep 2026 setup and pricing.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/how-to-automate-lead-generation-with-n8n.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Automate Lead Generation with n8n (2026 Step-by-Step)">
+<meta name="twitter:description" content="Step-by-step: build a free n8n workflow that captures a form lead, pushes it to your CRM, and fires an instant text-back -- no Zapier task fees, verified Sep 2026 setup and pricing.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Automate Lead Generation with n8n (2026 Step-by-Step)","description":"Step-by-step: build a free n8n workflow that captures a form lead, pushes it to your CRM, and fires an instant text-back -- no Zapier task fees, verified Sep 2026 setup and pricing.","url":"https://mrjcarrazco.github.io/stackhonest/how-to-automate-lead-generation-with-n8n.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-17","dateModified":"2026-09-17","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/how-to-automate-lead-generation-with-n8n.html"},"author":{"@type":"Person","name":"Juan Carrazco","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+<h1>How to Automate Lead Generation with n8n (2026 Step-by-Step)</h1>
+<p class="meta">Last updated September 2026 &middot; ~8 min read &middot; by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. I run this exact workflow (or a close variant of it) for my own lead intake -- this is the actual build, not a theoretical one.</div>
+
+<p><strong>Short answer:</strong> build a 3-node n8n workflow -- a Form or Webhook trigger to catch the lead, an HTTP Request or dedicated CRM node to push the contact record, and a Twilio/WhatsApp/email node to fire an instant follow-up. Self-hosted, this costs nothing beyond a 5-6 dollar/mo VPS since executions are unlimited. On n8n Cloud it fits comfortably inside the 20 dollar/mo Starter tier's 2,500 monthly executions unless your trigger fires on a tight recurring schedule rather than only on real leads.</p>
+
+<h2>Prerequisites and real costs</h2>
+<p>You need three things: an n8n instance (self-hosted free + VPS, or Cloud starting at 20 dollars/mo annual per <a href="n8n-review-for-beginners-2026.html">my full n8n review</a>), a place leads come from (a website form, a Facebook lead ad, or a Google Sheet someone else fills in), and a destination (a CRM, a spreadsheet, or just a Slack/email alert if you are not ready for a full CRM). If you have zero budget: n8n's Form trigger node can BE your form, so you can skip a separate form tool entirely and pay nothing but the VPS. If you already pay for Typeform, Tally, or a website form plugin, keep it and just point its webhook at n8n.</p>
+<h2>Step-by-step build</h2>
+<ol>
+<li><strong>Create the trigger.</strong> Add either an n8n Form node (fastest, zero extra tooling) or a Webhook node if your existing form/landing page can POST to a URL. The Webhook node gives you a unique URL the moment you save it -- paste that into your form tool's "send to webhook" setting.</li>
+<li><strong>Capture and normalize the data.</strong> Add a Set/Edit Fields node right after the trigger to rename incoming fields to a consistent shape (name, email, phone, source) -- this saves you rewiring every downstream node later when a form field name changes.</li>
+<li><strong>Push to your CRM.</strong> Use the dedicated node if your CRM has one (HubSpot, Pipedrive, Airtable all have native n8n nodes), or an HTTP Request node against the CRM's API if it does not. Map the normalized fields from step 2 into the CRM's required fields.</li>
+<li><strong>Add a condition for hot leads.</strong> An IF node checking something like "budget field is not empty" or "source = phone call" lets you branch high-intent leads into a faster follow-up path versus a standard nurture path.</li>
+<li><strong>Fire the instant follow-up.</strong> A Twilio node (SMS), WhatsApp Business node, or plain email node sends the text-back or confirmation within seconds of form submission -- this single step is usually the highest-leverage part of the whole workflow, since response speed correlates directly with lead conversion.</li>
+<li><strong>Test with a real submission, not the "execute workflow" button.</strong> Submit an actual test lead through the real form or webhook URL at least once before trusting it -- the manual test-run inside the n8n editor skips some header/payload quirks that show up only on a live POST.</li>
+</ol>
+<h2>Common failure points</h2>
+<ul>
+<li><strong>Field name mismatches.</strong> The single most common break is a form field getting renamed (by you, a plugin update, or a client) without updating the Set node downstream -- symptoms show up as blank CRM records, not an error message, so check your CRM after any form edit.</li>
+<li><strong>Webhook URL swapped between test and production.</strong> n8n gives you a separate test URL and production URL for Webhook nodes -- it is easy to leave your live form pointed at the test URL, which silently stops working the moment you close the editor tab.</li>
+<li><strong>Rate limits on the messaging step.</strong> If you batch-import old leads through the same workflow, a Twilio or email step built for one-at-a-time real-time leads can hit provider rate limits fast -- add a short Wait node before bulk-running historical data through it.</li>
+<li><strong>CRM API auth expiring.</strong> OAuth-based CRM connections (HubSpot, Salesforce) periodically need re-authorizing in the n8n credentials screen -- if leads stop appearing with no error in the execution log, check the credential status first.</li>
+</ul>
+
+<h2>The tools used</h2>
+<p>This build only requires <a href="https://n8n.io/">n8n</a> itself -- no separate form tool, no separate automation platform. If you are choosing between n8n and the alternatives for this specific use case, see my full breakdown in <a href="best-automation-tool-for-lead-generation.html">best automation tool for lead generation</a> (n8n vs Zapier vs Make on lead-gen economics specifically) and <a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs self-hosted cost</a> if you are trying to decide which billing model fits your lead volume.</p>
+<h2>FAQ</h2>
+<h3>How do I automate lead generation with n8n?</h3>
+<p>Build a workflow with a webhook or form trigger to catch the lead, an HTTP Request or CRM node to push the contact into your CRM, and a condition plus messaging node (Twilio, WhatsApp, or email) to fire an instant follow-up. n8n's built-in Form trigger node means you often do not need a separate form tool at all.</p>
+<h3>Is n8n free for lead generation automation?</h3>
+<p>Yes if you self-host -- the Community Edition is free open-source software with unlimited workflows and executions, and your only cost is a small VPS around 5 to 6 dollars a month. n8n Cloud starts at 20 dollars a month annually for 2,500 executions, which is plenty for most solo lead-gen setups but can run out fast if your trigger fires on a tight schedule.</p>
+<h3>What is the fastest way to get a lead-gen workflow running today?</h3>
+<p>Import a pre-built template from n8n's own template library (search "lead capture" or "form to CRM") instead of building from a blank canvas -- most get you a working skeleton in under 10 minutes, though expect to rewire one or two nodes if the template references an API version that has since changed. Grab my own starting point in <a href="free-n8n-templates.html">free n8n templates</a>.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest -- AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links, if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
