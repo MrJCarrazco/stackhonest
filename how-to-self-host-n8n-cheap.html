@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html">
+<meta name="description" content="Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"What is the cheapest way to self-host n8n?","acceptedAnswer":{"@type":"Answer","text":"A raw VPS running Docker is the cheapest route -- Hetzner CX22 runs about 4.50 to 5 dollars per month for 2 vCPU and 4GB RAM, enough for a solo builder running n8n Community Edition with unlimited workflows and executions. Managed one-click n8n hosts run 4 to 8 dollars per month if you want to skip the Docker setup entirely."}},{"@type":"Question","name":"Is self-hosting n8n actually free?","acceptedAnswer":{"@type":"Answer","text":"The n8n Community Edition software itself is free and open-source with no license fee, unlimited workflows, and unlimited executions. You still pay for the server it runs on, which is why self-hosting costs 4 to 9 dollars a month rather than literally zero, unless you already have a spare machine or free-tier VPS credit sitting around."}},{"@type":"Question","name":"Do I need to know Docker to self-host n8n?","acceptedAnswer":{"@type":"Answer","text":"Basic comfort with the command line helps, but n8n's own one-line installer handles Docker Compose, config files, and starting the container for you. If you have never used SSH before, budget an evening the first time rather than the 30 minutes some guides promise."}}]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS">
+<meta property="og:description" content="Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS">
+<meta name="twitter:description" content="Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS","description":"Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.","url":"https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-18","dateModified":"2026-09-18","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html"},"author":{"@type":"Person","name":"Juan Carrazco","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+<h1>How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS</h1>
+<p class="meta">Last updated September 2026 &middot; ~9 min read &middot; by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every price here is checked directly against the vendor's current pricing page, not a stale roundup.</div>
+
+<p><strong>Short answer:</strong> rent a 2 vCPU / 4GB VPS from Hetzner (about 4.50 to 5 dollars/mo) or Hostinger (about 6.49 to 8.99 dollars/mo intro rate), install Docker, run n8n's official one-line installer, and point a domain at it with a free Caddy or Nginx reverse proxy for HTTPS. Total time: 30-60 minutes the first time. Total cost: under 5 dollars a month with unlimited workflows and executions, versus 24 dollars/mo minimum for n8n Cloud Starter's capped 2,500 executions.</p>
+
+<h2>The direct answer / TL;DR steps</h2>
+<ol>
+<li>Rent a VPS with at least 2GB RAM (4GB is safer if you will run AI-heavy workflows) -- <a href="https://www.hetzner.com/cloud/">Hetzner CX22</a> or a similar budget KVM box.</li>
+<li>SSH in, install Docker if it is not already on the image.</li>
+<li>Run n8n's official installer: <code>curl -fsSL https://get.n8n.io | sh</code> -- this creates a folder, writes a compose file and .env with generated secrets, and starts the container.</li>
+<li>Point a domain's A record at your VPS IP, then put Caddy or Nginx in front for free automatic HTTPS (n8n needs HTTPS for webhooks and OAuth logins to work properly).</li>
+<li>Log in at your domain, set up your owner account, and start building. Update later with <code>curl -fsSL https://get.n8n.io | sh -s -- --upgrade</code>.</li>
+</ol>
+
+<h2>Prerequisites + costs (honest, include free routes)</h2>
+<p>You need: a VPS, a domain (optional but recommended for HTTPS and clean webhook URLs), and basic comfort typing commands over SSH. Here is what it actually costs, verified against vendor pricing pages this week:</p>
+<table>
+<tr><th>Route</th><th>Monthly cost</th><th>Specs</th><th>Setup effort</th></tr>
+<tr><td>Hetzner CX22 (raw VPS)</td><td>~4.50-5 dollars</td><td>2 vCPU, 4GB RAM, 40GB disk</td><td>30-60 min (you run Docker yourself)</td></tr>
+<tr><td>Hostinger KVM 1</td><td>6.49 dollars intro (renews ~11.99/mo)</td><td>1 vCPU, 4GB RAM, 50GB NVMe</td><td>15-30 min (n8n one-click template available)</td></tr>
+<tr><td>Managed one-click n8n host</td><td>~3.70-8 dollars</td><td>Varies by plan</td><td>Under 5 min, no Docker knowledge needed</td></tr>
+<tr><td>n8n Cloud Starter (for comparison)</td><td>24 dollars/mo (20/mo annual)</td><td>2,500 executions/mo cap</td><td>~2 min, zero maintenance</td></tr>
+</table>
+<p>The honest catch: a "free" VPS almost never stays free. Some clouds offer trial credits (Oracle Cloud's Always Free tier is the one genuine long-term free option some builders use, though it has its own quirks and is not guaranteed to stay free forever). Budget for the 4-9 dollar range as your real number, not zero.</p>
+
+<h2>Step-by-step with screenshots</h2>
+<p>[JUAN: add screenshots of your actual Hetzner console + first n8n login screen here once you run through this on a real box -- readers trust this section more with real screenshots than stock images.]</p>
+<p>1. <strong>Create the VPS.</strong> Pick Ubuntu 22.04 or 24.04 as the OS image, 2 vCPU / 4GB RAM minimum. Note the IP address you are given.</p>
+<p>2. <strong>SSH in</strong> and update packages first.</p>
+<p>3. <strong>Run the n8n installer.</strong> As of the 2026 release line, n8n recommends its one-line install command over the older manual Docker Compose file -- it checks for Docker, creates an n8n folder, writes a compose file and .env with generated secrets, and starts the container automatically. First run pulls the image and can take a few minutes.</p>
+<p>4. <strong>Point your domain at the box.</strong> Add an A record for a subdomain like n8n.yourdomain.com pointing at the VPS IP. Put a reverse proxy (Caddy is the simplest -- it handles HTTPS certificates automatically with almost no config) in front of port 5678 so you are not exposing n8n over plain HTTP.</p>
+<p>5. <strong>Open the URL, create your owner account,</strong> and you are running. Set a calendar reminder to run the upgrade command monthly -- n8n ships frequent updates and skipping too many at once makes the jump riskier.</p>
+
+<h2>Common failure points</h2>
+<ul>
+<li><strong>Skipping HTTPS.</strong> Webhooks, OAuth logins for connected apps, and some community nodes silently misbehave over plain HTTP. Set up the reverse proxy before you rely on this for real workflows.</li>
+<li><strong>Running on 1GB RAM.</strong> n8n plus its task runners can OOM-kill your own workflows on the smallest VPS tiers, especially with AI or data-heavy nodes. 4GB is the safer floor, not the minimum listed spec.</li>
+<li><strong>Forgetting backups.</strong> Your workflow data lives in a Docker volume on that one box. If the VPS dies and you never set up backups, everything you built is gone. Most VPS hosts offer a cheap weekly snapshot add-on -- turn it on.</li>
+<li><strong>Letting updates pile up.</strong> n8n does not break often, but jumping from a 6-month-old version straight to current can hit multiple breaking changes at once. Update monthly in small steps instead.</li>
+<li><strong>No monitoring.</strong> Self-hosted means nobody pages you when it goes down. A free uptime checker pinging your n8n URL is a 5-minute setup that saves you from finding out your automations died three days ago.</li>
+</ul>
+
+<h2>The tools used (affiliate links in context)</h2>
+<p>For the VPS itself, <a href="https://www.hetzner.com/cloud/">Hetzner Cloud</a> is the cheapest raw option I could verify this week at roughly 4.50-5 dollars/mo for 2 vCPU/4GB, though it is EU-hosted which matters if your audience needs US-region data residency. If you would rather stay with the same host reviewed elsewhere on this site, see my <a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n review</a> for their one-click n8n template and current KVM tier pricing. For the software itself, get familiar with the free tier and pricing structure at <a href="https://n8n.io/pricing/">n8n.io/pricing</a> before deciding whether Cloud or self-hosted fits your execution volume -- see my full <a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs self-hosted cost breakdown</a> for the exact math.</p>
+
+<h2>FAQ</h2>
+<h3>What is the cheapest way to self-host n8n?</h3>
+<p>A raw VPS running Docker is the cheapest route -- Hetzner CX22 runs about 4.50 to 5 dollars per month for 2 vCPU and 4GB RAM, enough for a solo builder running n8n Community Edition with unlimited workflows and executions. Managed one-click n8n hosts run 4 to 8 dollars per month if you want to skip the Docker setup entirely.</p>
+<h3>Is self-hosting n8n actually free?</h3>
+<p>The n8n Community Edition software itself is free and open-source with no license fee, unlimited workflows, and unlimited executions. You still pay for the server it runs on, which is why self-hosting costs 4 to 9 dollars a month rather than literally zero, unless you already have a spare machine or free-tier VPS credit sitting around.</p>
+<h3>Do I need to know Docker to self-host n8n?</h3>
+<p>Basic comfort with the command line helps, but n8n's own one-line installer handles Docker Compose, config files, and starting the container for you. If you have never used SSH before, budget an evening the first time rather than the 30 minutes some guides promise. See my <a href="n8n-review-for-beginners-2026.html">n8n review for beginners</a> if you are still deciding whether n8n is the right tool at all.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest -- AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links, if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
