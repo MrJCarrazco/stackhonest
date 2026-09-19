@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Missed Call Text Back Automation: How to Set It Up (2026)</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/missed-call-text-back-automation-setup.html">
+<meta name="description" content="Step-by-step: build a free n8n workflow that texts back every missed call within seconds -- skip the $97-$697/mo missed-call SaaS tools, verified Sep 2026 pricing and setup.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+{"@type":"Question","name":"How do I set up missed call text back automation?","acceptedAnswer":{"@type":"Answer","text":"Wire your phone number's missed-call/no-answer webhook (Twilio Status Callback if you use a Twilio number, or your VoIP provider's webhook) into an automation tool that fires an SMS reply within seconds. On n8n you build this as a Webhook trigger, an IF node that checks the call status is no-answer or busy, and a Twilio SMS node that sends the text -- three nodes, no monthly SaaS fee beyond your VPS and the per-text Twilio cost."}},
+{"@type":"Question","name":"How much does missed call text back cost?","acceptedAnswer":{"@type":"Answer","text":"Standalone SaaS tools like Enzak charge roughly 99 dollars a month plus a 99 dollar setup fee. Bundled into a bigger platform it can run 50 to 400 dollars a month depending on tier, or 97 to 697 dollars a month for agency-managed AI-conversation versions. Built yourself on n8n it costs a 5 to 6 dollar a month VPS (or free if you already self-host) plus Twilio's per-message rate, which is 0.0083 dollars per SMS segment before carrier fees -- typically 1 to 1.5 cents per text all-in."}},
+{"@type":"Question","name":"Is missed call text back worth it for a small service business?","acceptedAnswer":{"@type":"Answer","text":"Usually yes -- industry data cited across multiple missed-call-text-back vendors puts unanswered-call rates for small businesses around 62 percent going to voicemail and never calling back, and small businesses overall answer only about 38 percent of incoming calls. If you rely on phone leads (contractors, home services, clinics) a single recovered job typically pays for months of the automation, whether you buy a SaaS tool or self-host it for a few dollars a month."}}
+]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Missed Call Text Back Automation: How to Set It Up (2026)">
+<meta property="og:description" content="Step-by-step: build a free n8n workflow that texts back every missed call within seconds -- skip the $97-$697/mo missed-call SaaS tools, verified Sep 2026 pricing and setup.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/missed-call-text-back-automation-setup.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Missed Call Text Back Automation: How to Set It Up (2026)">
+<meta name="twitter:description" content="Step-by-step: build a free n8n workflow that texts back every missed call within seconds -- skip the $97-$697/mo missed-call SaaS tools, verified Sep 2026 pricing and setup.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"Missed Call Text Back Automation: How to Set It Up (2026)","description":"Step-by-step: build a free n8n workflow that texts back every missed call within seconds -- skip the $97-$697/mo missed-call SaaS tools, verified Sep 2026 pricing and setup.","url":"https://mrjcarrazco.github.io/stackhonest/missed-call-text-back-automation-setup.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-18","dateModified":"2026-09-18","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/missed-call-text-back-automation-setup.html"},"author":{"@type":"Person","name":"Juan Carrazco","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+<a href="how-to-self-host-n8n-cheap.html">Self-Host n8n Cheap</a>
+<a href="missed-call-text-back-automation-setup.html">Missed Call Text Back</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+<h1>Missed Call Text Back Automation: How to Set It Up (2026)</h1>
+<p class="meta">Last updated September 2026 &middot; ~7 min read &middot; by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. This is the same n8n stack I use elsewhere on this site, applied to a different trigger.</div>
+
+<p><strong>Short answer:</strong> wire your phone number's no-answer webhook into an automation that fires an SMS within seconds -- on Twilio that is a Status Callback webhook, an IF node checking the call status is no-answer or busy, and an SMS node sending the text. Standalone SaaS tools for this run roughly 50 to 700 dollars a month depending on how much AI conversation is bundled in; built yourself on n8n it is a few dollars a month in VPS plus about a penny per text in Twilio fees.</p>
+<h2>What this actually costs (the honest range)</h2>
+<p>The market for this single feature is wide and confusing on purpose. Here is what I found checking real vendor pricing pages in September 2026:</p>
+<ul>
+<li><strong>Bundled into software you already pay for.</strong> Some field-service and phone platforms include basic missed-call auto-text at no extra cost -- check your current tools before buying anything.</li>
+<li><strong>Standalone SaaS, entry tier: roughly $50-$300/mo.</strong> Basic auto-text plus a two-way inbox, no voice AI, no CRM.</li>
+<li><strong>Standalone SaaS with named pricing: $97-$99/mo.</strong> One well-known standalone tool (Enzak) charges $99/mo plus a $99 one-time setup for a single automation.</li>
+<li><strong>Agency-managed AI-conversation version: $297-$697/mo</strong> (some quote up to $997/mo) -- this tier has the AI actually holding a qualifying conversation with the caller, not just sending one canned text.</li>
+<li><strong>Full communication platforms: $150-$300+/mo per location</strong> -- missed-call text-back is one feature bundled with an AI phone agent, unified inbox, and CRM integrations.</li>
+<li><strong>Build it yourself on n8n: a 5-6 dollar/mo VPS</strong> (or free if you already self-host n8n for something else) <strong>plus Twilio per-message rate</strong> -- $0.0083 per SMS segment before carrier fees, which typically land the real cost around 1-1.5 cents per text once AT&T/T-Mobile/Verizon pass-through fees are added.</li>
+</ul>
+<p>If you are already running n8n for another workflow (see my <a href="how-to-automate-lead-generation-with-n8n.html">lead-gen automation guide</a>), this one is close to free to add. If you are starting from zero and just need one automation working today with no build time, the standalone SaaS tools are a legitimate choice -- you are paying for done-for-you, not for the automation being technically hard.</p>
+
+<h2>Prerequisites</h2>
+<p>You need: a phone number that can trigger a webhook on a missed or unanswered call (a Twilio number is the most direct path, since Twilio Status Callback fires on every call state change including no-answer and busy), an n8n instance (self-hosted free + VPS, or <a href="n8n-review-for-beginners-2026.html">n8n Cloud</a> starting at 20 dollars/mo annual), and a place to send the text from (the same Twilio account can send the SMS, so you do not need a second messaging provider).</p>
+<h2>Step-by-step build</h2>
+<ol>
+<li><strong>Point your Twilio number Status Callback at an n8n Webhook.</strong> In the Twilio console, set the voice number Status Callback URL to your n8n Webhook node production URL. This fires on every call state, not just missed ones, so the next step matters.</li>
+<li><strong>Filter for no-answer or busy only.</strong> Add an IF node checking the incoming CallStatus field equals no-answer or busy -- answered calls should be ignored so you do not text people you just talked to.</li>
+<li><strong>Grab the caller number.</strong> The Twilio webhook payload includes the caller number (From field) automatically -- no extra lookup needed for the basic version.</li>
+<li><strong>Send the text-back.</strong> Add a Twilio node (or HTTP Request against Twilio Messages API) that sends an SMS to the caller number -- something like "Sorry we missed your call, how can we help?" Keep it short: under 160 characters keeps you at one billed segment instead of splitting into more.</li>
+<li><strong>Optional: classify the reply.</strong> If the caller texts back, a second workflow (or a branch on the same one) can run the reply through an AI node to flag it as a new lead, existing customer, or spam, and route accordingly -- this is the piece that separates a $15 template from a $297/mo agency service, and it is the same amount of n8n nodes either way.</li>
+<li><strong>Test with a real missed call, not a simulated webhook payload.</strong> Call your own number and let it ring out -- Twilio actual Status Callback payload has fields and timing that a hand-built test JSON can miss.</li>
+</ol>
+<h2>Common failure points</h2>
+<ul>
+<li><strong>Texting answered calls by mistake.</strong> If the IF node status check is wrong or missing, you will text everyone who called, not just missed calls -- test both an answered and unanswered call before going live.</li>
+<li><strong>10DLC registration delays.</strong> US A2P (application-to-person) SMS on a local Twilio number requires registering your business with The Campaign Registry -- this is not instant, so do not build this the day before you need it live.</li>
+<li><strong>Rate limits if a number gets flooded with real missed calls.</strong> Add a short Wait/dedupe check if the same number could trigger multiple webhooks in a short window (voicemail retries, redial), so you do not send the same caller three texts in a minute.</li>
+<li><strong>Character count creeping past one segment.</strong> A single emoji switches the whole message to UCS-2 encoding, dropping the per-segment limit from 160 characters to 70 -- a message that looks short can silently become 3 billed segments.</li>
+</ul>
+
+<h2>The tools used</h2>
+<p>This build runs on <a href="https://n8n.io/">n8n</a> plus a Twilio account for the phone number and SMS sending -- no separate missed-call SaaS subscription required. If you do not already have n8n running, see my <a href="n8n-review-for-beginners-2026.html">full n8n review</a> or <a href="how-to-self-host-n8n-cheap.html">how to self-host n8n cheap</a> for the VPS route. For the lead-gen side of this same stack (what happens after the text-back conversation converts), see <a href="how-to-automate-lead-generation-with-n8n.html">how to automate lead generation with n8n</a>.</p>
+<h2>FAQ</h2>
+<h3>How do I set up missed call text back automation?</h3>
+<p>Wire your phone number missed-call/no-answer webhook (Twilio Status Callback if you use a Twilio number, or your VoIP provider webhook) into an automation tool that fires an SMS reply within seconds. On n8n you build this as a Webhook trigger, an IF node that checks the call status is no-answer or busy, and a Twilio SMS node that sends the text -- three nodes, no monthly SaaS fee beyond your VPS and the per-text Twilio cost.</p>
+<h3>How much does missed call text back cost?</h3>
+<p>Standalone SaaS tools like Enzak charge roughly 99 dollars a month plus a 99 dollar setup fee. Bundled into a bigger platform it can run 50 to 400 dollars a month depending on tier, or 97 to 697 dollars a month for agency-managed AI-conversation versions. Built yourself on n8n it costs a 5 to 6 dollar a month VPS (or free if you already self-host) plus Twilio per-message rate, which is 0.0083 dollars per SMS segment before carrier fees -- typically 1 to 1.5 cents per text all-in.</p>
+<h3>Is missed call text back worth it for a small service business?</h3>
+<p>Usually yes -- industry data cited across multiple missed-call-text-back vendors puts unanswered-call rates for small businesses around 62 percent going to voicemail and never calling back, and small businesses overall answer only about 38 percent of incoming calls. If you rely on phone leads (contractors, home services, clinics) a single recovered job typically pays for months of the automation, whether you buy a SaaS tool or self-host it for a few dollars a month.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest -- AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links, if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
