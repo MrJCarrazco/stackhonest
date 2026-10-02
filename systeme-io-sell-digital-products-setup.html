@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>How to Sell Digital Products on Systeme.io: Full Setup From Zero to First Sale (2026)</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/systeme-io-sell-digital-products-setup.html">
+<meta name="description" content="Step-by-step setup for selling ebooks and templates on Systeme.io's free plan: Stripe/PayPal connection, funnel and checkout build, automated delivery email, order bumps and upsells -- plus the fee math vs Gumroad and the free-plan walls you'll actually hit. Verified October 2026.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Can you really sell digital products on Systeme.io for free?", "acceptedAnswer": {"@type": "Answer", "text": "Yes. As of October 2026, Systeme.io's free plan includes 3 sales funnels (15 steps total), unlimited email sends to up to 2,000 contacts, 1 automation rule plus 1 workflow (enough to deliver one product automatically), Stripe and PayPal integration, unlimited file storage, 1 order bump, 1 one-click upsell, and 0% transaction fees. No credit card is required to sign up and the free plan is permanent, not a trial."}}, {"@type": "Question", "name": "Is Systeme.io cheaper than Gumroad for selling ebooks?", "acceptedAnswer": {"@type": "Answer", "text": "On fees, almost always. Gumroad charges 10% + $0.50 per direct sale and 30% on sales through its Discover marketplace (verified October 2026). Systeme.io charges 0% platform fees on every plan including free -- you only pay your payment processor's cut (roughly 2.9% + $0.30 with Stripe). On a $10 ebook, Gumroad takes $1.50; through Systeme.io you'd pay about $0.59 in Stripe processing. The honest trade-off: Gumroad is a merchant of record and handles worldwide sales tax for you, Systeme.io does not."}}, {"@type": "Question", "name": "What are the Systeme.io free plan limits for sellers?", "acceptedAnswer": {"@type": "Answer", "text": "The walls you'll actually hit: 2,000 contacts, 3 funnels with 15 total steps, 1 automation rule + 1 workflow, 1 email campaign, 1 tag, 1 order bump, 1 one-click upsell, 1 coupon code, 1 A/B test, 1 custom domain, and 1 course capped at 500 students. Emails sent and file storage are unlimited. The Startup plan at $17/month lifts most of these to 10 funnels, 5,000 contacts, 10 automation rules, and 5 workflows."}}]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="How to Sell Digital Products on Systeme.io: Full Setup From Zero to First Sale (2026)">
+<meta property="og:description" content="Ebooks and templates on the free plan: payment setup, checkout, automated delivery, upsells -- plus the fee math vs Gumroad and the free-plan walls. Verified Oct 2026.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/systeme-io-sell-digital-products-setup.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Sell Digital Products on Systeme.io: Zero to First Sale (2026)">
+<meta name="twitter:description" content="Free-plan setup walkthrough: payments, checkout, automated delivery, upsells, fee math vs Gumroad, and the real limits. Verified Oct 2026.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "How to Sell Digital Products on Systeme.io: Full Setup From Zero to First Sale (2026)", "description": "Step-by-step setup for selling ebooks and templates on Systeme.io's free plan: payment setup, funnel and checkout build, automated delivery, order bumps and upsells, fee math vs Gumroad, and the free-plan limits. Verified October 2026.", "url": "https://mrjcarrazco.github.io/stackhonest/systeme-io-sell-digital-products-setup.html", "image": "https://mrjcarrazco.github.io/stackhonest/og-banner.png", "datePublished": "2026-10-01", "dateModified": "2026-10-01", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mrjcarrazco.github.io/stackhonest/systeme-io-sell-digital-products-setup.html"}, "author": {"@type": "Person", "name": "Juan Carrazco", "url": "https://mrjcarrazco.github.io/stackhonest/about.html"}, "publisher": {"@type": "Organization", "name": "StackHonest", "url": "https://mrjcarrazco.github.io/stackhonest/", "logo": {"@type": "ImageObject", "url": "https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="systeme-io-vs-kartra-pricing.html">Systeme.io vs Kartra</a>
+<a href="how-to-build-a-saas-landing-page-with-systeme-io.html">Build a SaaS Landing Page</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+<a href="missed-call-text-back-automation-setup.html">Missed Call Text Back</a>
+<a href="systeme-io-vs-thinkific-pricing.html">Systeme.io vs Thinkific</a>
+<a href="systeme-io-vs-builderall.html">Systeme.io vs Builderall</a>
+<a href="systeme-io-vs-kit-for-creators.html">Systeme.io vs Kit</a>
+<a href="zapier-alternatives-free-unlimited.html">Zapier Alternatives (Free/Unlimited)</a>
+<a href="elevenlabs-alternatives-cheaper.html">Cheaper ElevenLabs Alternatives</a>
+<a href="koala-writer-review.html">Koala Writer Review</a>
+<a href="n8n-ai-agent-templates-free.html">Free n8n AI Agent Templates</a>
+<a href="elevenlabs-voice-cloning-cost-breakdown.html">Voice Cloning Cost Breakdown</a>
+<a href="systeme-io-vs-hubspot.html">Systeme.io vs HubSpot</a>
+<a href="systeme-io-sell-digital-products-setup.html">Sell Digital Products on Systeme.io</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>How to Sell Digital Products on Systeme.io: Full Setup From Zero to First Sale</h1>
+<p class="meta">Last updated October 2026 &middot; ~9 min read &middot; by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every opinion here comes from actually running these tools, and I will tell you when something is not worth your money.</div>
+
+<p><strong>Short answer:</strong> you can sell an ebook or template pack on <a href="https://systeme.io" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:systeme]">Systeme.io</a>'s free plan today, end to end, for $0 platform cost: connect Stripe or PayPal, build a 3-step funnel (sales page &rarr; checkout &rarr; thank-you), and use your one free automation rule to email the file on purchase. Transaction fees are <strong>0% on every plan including free</strong> &mdash; you only pay your processor's ~2.9% + $0.30 &mdash; versus Gumroad's <strong>10% + $0.50 per direct sale</strong> (30% via its Discover marketplace). The catch is tax handling and the free plan's hard "1 of everything" automation limits, both covered honestly below. All numbers verified against <a href="https://systeme.io/pricing" rel="nofollow">systeme.io/pricing</a> and <a href="https://gumroad.com/pricing" rel="nofollow">gumroad.com/pricing</a> on October 1, 2026.</p>
+
+<h2>Why Systeme.io Beats Gumroad's Fees for Beginners</h2>
+<p>Gumroad's pitch is real: no monthly fee, live in ten minutes. But its current published pricing is <strong>10% + $0.50 on every sale through your own links</strong>, and a flat <strong>30% when a new customer finds you through the Discover marketplace</strong>. Systeme.io's pricing page lists <strong>0% transaction fees on all four tiers, including the permanent free plan</strong> &mdash; Stripe or PayPal's own processing cut is the only per-sale cost.</p>
+<p>Run the math on a $10 ebook at 100 sales/month ($1,000):</p>
+<table>
+<tr><th></th><th>Gumroad (direct sales)</th><th>Systeme.io free plan + Stripe</th></tr>
+<tr><td>Platform fee</td><td>10% + $0.50 &times; 100 = <strong>$150</strong></td><td><strong>$0</strong></td></tr>
+<tr><td>Payment processing</td><td>included in the above</td><td>~2.9% + $0.30 &times; 100 &asymp; <strong>$59</strong></td></tr>
+<tr><td>Monthly plan cost</td><td>$0</td><td>$0</td></tr>
+<tr><td>You keep</td><td>~$850 (85%)</td><td>~$941 (94%)</td></tr>
+</table>
+<p>That's roughly <strong>$91/month back in your pocket at a modest $1,000/month</strong>, and the gap widens linearly with revenue. The $0.50 flat component also quietly punishes cheap products: on a $3 Notion template, Gumroad's cut is $0.80 &mdash; 27% of the sale.</p>
+<p>Now the honest other side, because Gumroad earns that 10% in two specific ways:</p>
+<ul>
+<li><strong>Gumroad is a merchant of record.</strong> Since January 1, 2025 it collects and remits sales tax, VAT, and GST worldwide on your behalf. On Systeme.io, <em>you</em> are the seller of record through your own Stripe/PayPal account &mdash; if you start selling meaningful volume into the EU or UK, VAT compliance is your problem (or your accountant's). For a hobby-scale seller this rarely bites; past a few thousand a month it's a real line item of effort.</li>
+<li><strong>Discover brings buyers.</strong> 30% is steep, but it's 30% of sales you might never have gotten. Systeme.io has no equivalent discovery marketplace &mdash; traffic is entirely on you.</li>
+</ul>
+<p>My take: if you already have any audience at all (a newsletter, a subreddit presence, a YouTube channel), the fee math says Systeme.io, and you get a funnel builder and email list thrown in free &mdash; two things Gumroad doesn't do and that compound over time. If you have zero audience and want passive marketplace exposure, Gumroad's 30% Discover sales are better than 100% of nothing. There's no shame in running both while you figure out which channel actually sells.</p>
+
+<h2>Setting Up Your Product, Checkout, and Delivery Email</h2>
+<p>The whole build is about an hour the first time. No credit card is required for the free account.</p>
+<ol>
+<li><strong>Create the account and skip the theater.</strong> Sign up at <a href="https://systeme.io" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:systeme]">systeme.io</a> &mdash; free plan, no trial clock. You can launch on the built-in subdomain; the free plan also includes 1 custom domain when you're ready to look legitimate.</li>
+<li><strong>Connect payments first.</strong> Settings &rarr; Payment gateways. Stripe and PayPal are both available on the free plan (so are regional processors like Razorpay, Flutterwave, Mercado Pago, and Xendit). Connect Stripe even if you also want PayPal &mdash; Stripe powers the clean card checkout, Apple Pay, and the order-bump/upsell mechanics.</li>
+<li><strong>Build the funnel.</strong> Funnels &rarr; Create &rarr; "Sell" goal. The classic 3 steps: <em>sales page</em> (one long page: what it is, who it's for, what's inside, price), <em>order form</em>, <em>thank-you page</em>. The free plan gives you 3 funnels and 15 total steps, so one product funnel barely dents it. The page editor is functional drag-and-drop &mdash; closer to "gets the job done" than "beautiful" &mdash; start from a template and strip it down rather than building from blank.</li>
+<li><strong>Create the product and price.</strong> On the order form step, add a price plan: one-time payment for an ebook/template (subscriptions and payment plans also work). This is where you set the actual amount that hits your Stripe.</li>
+<li><strong>Upload the file.</strong> File storage is unlimited on every plan, including free &mdash; upload your PDF/ZIP straight into Systeme.io, no Dropbox duct tape needed.</li>
+<li><strong>Wire the delivery email.</strong> Two clean options: (a) put the download link on the thank-you page <em>and</em> in an email, or (b) email-only for a cleaner paper trail. Build the email once, then create an automation rule on the order form: <em>trigger</em> = product purchased, <em>action</em> = send the delivery email with the file link. That is exactly what your <strong>1 free automation rule</strong> is for &mdash; spend it here, nowhere else.</li>
+<li><strong>Test with a real card.</strong> Buy your own product at full price, confirm the email lands (check spam), then refund yourself in Stripe. Every delivery horror story I've seen traces back to skipping this step.</li>
+</ol>
+<p>If you want the page-building part in more depth, the <a href="how-to-build-a-saas-landing-page-with-systeme-io.html">SaaS landing page walkthrough</a> uses the same editor and covers domain setup; and if you're still deciding whether Systeme.io is the right base at all, the <a href="systeme-io-review.html">full Systeme.io review</a> is the honest overview.</p>
+
+<h2>Automating Delivery and Upsells With Workflows</h2>
+<p>The free plan gives you <strong>1 automation rule + 1 workflow</strong> &mdash; singular. That's enough to run one product properly, and knowing the difference keeps you from wasting them:</p>
+<ul>
+<li><strong>Rules</strong> are single if-this-then-that pairs (purchase &rarr; send email). Use yours for delivery, as above.</li>
+<li><strong>Workflows</strong> are multi-step visual sequences with delays and branches. A good use of your one free workflow: purchase &rarr; wait 2 days &rarr; "how's it going?" email &rarr; wait 5 days &rarr; review ask or cross-sell email. A three-email post-purchase flow measurably outsells a bare receipt, and this is the free plan's quiet superpower &mdash; Gumroad has nothing like it without bolting on a separate email tool.</li>
+</ul>
+<p>Checkout-level revenue boosters, each capped at 1 on free:</p>
+<ul>
+<li><strong>Order bump:</strong> a checkbox on the order form ("add the companion checklist, +$7"). Converts shockingly well for low-ticket add-ons. You get 1 on free, 10 on Startup.</li>
+<li><strong>1-click upsell:</strong> a post-purchase offer page between checkout and thank-you, charged to the same card with one click. Save it for a genuinely bigger offer (the $49 bundle after the $12 ebook); a weak upsell just adds friction. Also 1 on free.</li>
+<li><strong>Coupon code:</strong> exactly 1 on free &mdash; fine for a single launch discount, annoying the moment you want seasonal codes.</li>
+</ul>
+<p>One structural warning: the free plan also includes exactly <strong>1 tag</strong>. Spend it on "customer" so you can segment buyers from freebie-seekers in your emails. You won't get a second one without paying, and untagged lists get ugly fast. For automation beyond what Systeme.io can express &mdash; syncing buyers to a spreadsheet, Discord invites, webhook anything &mdash; that's a job for a workflow tool like the ones in the <a href="best-ai-automation-tools.html">best AI automation tools guide</a>, and the <a href="free-n8n-templates.html">free n8n templates</a> include ready-made starting points.</p>
+
+<h2>Free Plan Limits You'll Hit (and When to Upgrade)</h2>
+<p>Straight from the pricing page, October 1, 2026 &mdash; the free plan is permanent and genuinely usable, but these are the walls in the order you'll likely hit them:</p>
+<table>
+<tr><th>Limit</th><th>Free</th><th>Startup $17/mo</th><th>When it actually hurts</th></tr>
+<tr><td>Automation rules / workflows</td><td>1 / 1</td><td>10 / 5</td><td>The moment you add a second product or a lead magnet with its own sequence</td></tr>
+<tr><td>Tags</td><td>1</td><td>10</td><td>As soon as you want buyers vs subscribers vs refunders separated</td></tr>
+<tr><td>Email campaigns</td><td>1</td><td>10</td><td>Second evergreen sequence</td></tr>
+<tr><td>Contacts</td><td>2,000</td><td>5,000</td><td>A decent lead magnet fills 2,000 in months</td></tr>
+<tr><td>Funnels / steps</td><td>3 / 15</td><td>10 / 50</td><td>Slower than you'd think &mdash; 3 funnels covers product + lead magnet + waitlist</td></tr>
+<tr><td>Order bumps / upsells / coupons / A-B tests</td><td>1 each</td><td>10 each</td><td>First multi-offer launch</td></tr>
+<tr><td>Courses</td><td>1 (500 students)</td><td>5 (unlimited students)</td><td>Only if your "digital product" becomes a course</td></tr>
+<tr><td>Emails sent / file storage</td><td colspan="2">Unlimited on every plan</td><td>Never &mdash; genuinely uncapped</td></tr>
+</table>
+<p>Notice the pattern: the free plan is "1 of everything, unlimited sending." It's a complete sales stack for exactly one product with one follow-up system. That's not a dark pattern &mdash; it's a fair trial that happens to never expire &mdash; but plan for the upgrade trigger: <strong>the second product is what pushes you to Startup at $17/month</strong> (annual billing is 2 months free, ~$14.17/month), not contact growth. Webinar at $47/month only matters if you want evergreen webinar funnels, and Unlimited at $97/month removes every cap. There's no forced jump in between &mdash; compare that honestly with the platforms that killed their free tiers entirely (<a href="systeme-io-vs-teachable.html">Teachable</a>, Thinkific, Podia) and Systeme.io's free plan is the last genuinely free way to sell with a real funnel.</p>
+<p>Who shouldn't bother: if you're newsletter-first and the product is incidental, Kit's 10,000-subscriber free tier may fit your shape better &mdash; the <a href="systeme-io-vs-kit-for-creators.html">Systeme.io vs Kit breakdown</a> is that exact decision. And if you expect under ~5 sales a month and want zero setup, Gumroad's fees on that volume round to pocket change; take the ten-minute setup and revisit when the math starts stinging.</p>
+
+<h2>FAQ</h2>
+<h3>Can I really sell digital products on Systeme.io's free plan?</h3>
+<p>Yes &mdash; permanently, no card required. Free includes 3 funnels, Stripe/PayPal checkout, unlimited file storage, unlimited email sends to 2,000 contacts, 1 automation rule + 1 workflow for delivery, 1 order bump, 1 upsell, and 0% transaction fees. Verified October 1, 2026.</p>
+<h3>How do fees compare to Gumroad?</h3>
+<p>Gumroad: 10% + $0.50 per direct sale, 30% via Discover. Systeme.io: 0% platform fee on all plans &mdash; only Stripe/PayPal processing (~2.9% + $0.30). On $1,000/month of $10 ebooks that's roughly $150 to Gumroad vs ~$59 in processing via Systeme.io. Gumroad's real counterweight is merchant-of-record tax handling and marketplace discovery.</p>
+<h3>When do I need to upgrade from the free plan?</h3>
+<p>Usually when you launch a second product: the free plan's 1 automation rule, 1 workflow, 1 tag, and 1 email campaign are a one-product allocation. Startup at $17/month (~$14/month annual) lifts those to 10/5/10/10 plus 5,000 contacts. Contact count is rarely the first wall.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest -- AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
