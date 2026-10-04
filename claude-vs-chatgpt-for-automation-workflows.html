@@ -9,9 +9,9 @@
 <link rel="stylesheet" href="style.css">
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
-{"@type":"Question","name":"Is Claude or ChatGPT cheaper for automation workflows?","acceptedAnswer":{"@type":"Answer","text":"Per raw token price, OpenAI's budget tiers (GPT-5.4-mini/nano) undercut Claude at the low end. But Claude Sonnet models hold a flat rate up to 1M tokens with no long-context surcharge, while GPT-5.4 doubles input price and adds 1.5x output cost past 272K tokens -- so Claude often wins on large-document or long-running-agent workflows despite a higher sticker price."}},
-{"@type":"Question","name":"Which model is better for AI agent nodes in n8n?","acceptedAnswer":{"@type":"Answer","text":"Claude Sonnet models are the more common default in n8n's AI Agent node community templates because of consistent tool-calling and lower hallucination rate on multi-step chains. ChatGPT (GPT-5.4/5.5) works fine too and is often cheaper for simple, low-step automations."}},
-{"@type":"Question","name":"Can I use both Claude and ChatGPT in the same n8n workflow?","acceptedAnswer":{"@type":"Answer","text":"Yes, and a lot of production workflows do -- route cheap, high-volume classification steps to a budget model (GPT-5.4-nano or Claude Haiku) and reserve the expensive flagship call for the one step that actually needs top-tier reasoning."}}
+{"@type":"Question","name":"Is Claude or ChatGPT cheaper for automation workflows?","acceptedAnswer":{"@type":"Answer","text":"Per raw token price, OpenAI's budget tier (GPT-6 Luna) undercuts Claude at the low end. But Claude Sonnet 5 holds a flat rate up to 1M tokens with no long-context surcharge, while GPT-6 Astra (OpenAI's flagship) doubles input price and adds 1.5x output cost past 272K tokens -- so Claude often wins on large-document or long-running-agent workflows despite a higher sticker price."}},
+{"@type":"Question","name":"Which model is better for AI agent nodes in n8n?","acceptedAnswer":{"@type":"Answer","text":"Claude Sonnet models are the more common default in n8n's AI Agent node community templates because of consistent tool-calling and lower hallucination rate on multi-step chains. ChatGPT (GPT-6 Sol/Astra) works fine too and is often cheaper for simple, low-step automations."}},
+{"@type":"Question","name":"Can I use both Claude and ChatGPT in the same n8n workflow?","acceptedAnswer":{"@type":"Answer","text":"Yes, and a lot of production workflows do -- route cheap, high-volume classification steps to a budget model (GPT-6 Luna or Claude Haiku) and reserve the expensive flagship call for the one step that actually needs top-tier reasoning."}}
 ]}</script>
 <meta property="og:type" content="article">
 <meta property="og:title" content="Claude vs ChatGPT for Automation Workflows (2026): Which LLM to Wire In">
@@ -26,7 +26,7 @@
 <meta name="twitter:description" content="Claude vs ChatGPT for n8n and automation pipelines in 2026 -- API pricing per million tokens, tool-calling reliability, context window limits, and which model to pick for which workflow node.">
 <meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"Claude vs ChatGPT for Automation Workflows (2026): Which LLM to Wire In","description":"Claude vs ChatGPT for n8n and automation pipelines in 2026 -- API pricing per million tokens, tool-calling reliability, context window limits, and which model to pick for which workflow node.","url":"https://mrjcarrazco.github.io/stackhonest/claude-vs-chatgpt-for-automation-workflows.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-10","dateModified":"2026-09-14","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/claude-vs-chatgpt-for-automation-workflows.html"},"author":{"@type":"Person","name":"Juan Carrazco","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+{"@context":"https://schema.org","@type":"Article","headline":"Claude vs ChatGPT for Automation Workflows (2026): Which LLM to Wire In","description":"Claude vs ChatGPT for n8n and automation pipelines in 2026 -- API pricing per million tokens, tool-calling reliability, context window limits, and which model to pick for which workflow node.","url":"https://mrjcarrazco.github.io/stackhonest/claude-vs-chatgpt-for-automation-workflows.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-10","dateModified":"2026-10-04","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/claude-vs-chatgpt-for-automation-workflows.html"},"author":{"@type":"Person","name":"Juan Carrazco","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
 </script>
 </head>
 <body>
@@ -119,28 +119,28 @@
 <main><div class="wrap">
 
 <h1>Claude vs ChatGPT for Automation Workflows (2026): Which LLM to Wire Into n8n</h1>
-<p class="meta">Last updated September 2026 &middot; ~7 min read &middot; by Juan</p>
+<p class="meta">Last updated October 2026 &middot; ~7 min read &middot; by Juan</p>
 <div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every opinion here comes from actually running these models inside production workflows -- I will tell you when something is not worth your money.</div>
-<p><strong>Short answer:</strong> for most n8n AI Agent nodes, Claude Sonnet is the safer default -- more consistent tool-calling on multi-step chains and a flat per-token rate up to 1M context with no long-context surcharge. ChatGPT's budget tiers (GPT-5.4-mini/nano) are cheaper for simple, high-volume, single-step calls like classification or summarization. Most of my production workflows now mix both.</p>
+<p><strong>Short answer:</strong> for most n8n AI Agent nodes, Claude Sonnet is the safer default -- more consistent tool-calling on multi-step chains and a flat per-token rate up to 1M context with no long-context surcharge. ChatGPT's budget tier (GPT-6 Luna) is cheaper for simple, high-volume, single-step calls like classification or summarization. Most of my production workflows now mix both.</p>
 
 <h2>The 30-second answer</h2>
-<div class="verdict"><strong>Pick Claude</strong> (Sonnet or Opus, via API) for AI Agent nodes doing multi-step reasoning, tool-calling, or long-document work inside <a href="https://n8n.io/">n8n</a>. <strong>Pick ChatGPT</strong> (GPT-5.4-mini or nano) for cheap, high-volume, single-shot tasks -- classify this ticket, summarize this email, extract this field. Do not pick one model for the whole pipeline -- route by step.</div>
+<div class="verdict"><strong>Pick Claude</strong> (Sonnet or Opus, via API) for AI Agent nodes doing multi-step reasoning, tool-calling, or long-document work inside <a href="https://n8n.io/">n8n</a>. <strong>Pick ChatGPT</strong> (GPT-6 Sol or Luna) for cheap, high-volume, single-shot tasks -- classify this ticket, summarize this email, extract this field. Do not pick one model for the whole pipeline -- route by step.</div>
 
 <h2>Pricing: per-million-token math, not subscription math</h2>
 <p>This comparison isn't ChatGPT Plus vs Claude Pro -- both consumer plans are $20/mo and roughly equivalent for chat. Inside an automation workflow you're paying the <strong>API</strong> rate per call, and that's where the real difference shows up:</p>
 <table>
 <tr><th>Model</th><th>Input / 1M tokens</th><th>Output / 1M tokens</th><th>Context</th></tr>
-<tr><td>GPT-5.4-nano</td><td>$0.20</td><td>$1.25</td><td>400K, no surcharge</td></tr>
-<tr><td>GPT-5.4-mini</td><td>$0.75</td><td>$4.50</td><td>400K, no surcharge</td></tr>
+<tr><td>GPT-6 Luna</td><td>$0.10</td><td>$0.50</td><td>1.05M, 2x/1.5x surcharge above 272K</td></tr>
+<tr><td>GPT-6 Sol</td><td>$2.00</td><td>$10.00</td><td>1.05M, 2x/1.5x surcharge above 272K</td></tr>
 <tr><td>Claude Haiku 4.5</td><td>$1.00</td><td>$5.00</td><td>200K</td></tr>
-<tr><td>GPT-5.4 (flagship)</td><td>$2.50</td><td>$15.00</td><td>1.05M, 2x/1.5x surcharge above 272K</td></tr>
-<tr><td>Claude Sonnet 4.6</td><td>$3.00</td><td>$15.00</td><td>1M, flat rate, no surcharge</td></tr>
-<tr><td>Claude Opus 4.8</td><td>$5.00</td><td>$25.00</td><td>1M, flat rate, no surcharge</td></tr>
+<tr><td>GPT-6 Astra (flagship)</td><td>$10.00</td><td>$50.00</td><td>1.05M, 2x/1.5x surcharge above 272K</td></tr>
+<tr><td>Claude Sonnet 5</td><td>$2.00</td><td>$10.00</td><td>1M, flat rate, no surcharge</td></tr>
+<tr><td>Claude Opus 5.5</td><td>$4.00</td><td>$20.00</td><td>1M, flat rate, no surcharge</td></tr>
 </table>
-<p>The nuance that matters for automation: GPT-5.4's flagship tier <em>doubles</em> its input price and adds a 1.5x output surcharge once you cross 272K tokens in a request. Claude's Sonnet and Opus tiers hold their listed rate flat all the way to 1M tokens. If your workflow feeds a whole PDF, a long call transcript, or an accumulated conversation history into the model on every run, that surcharge adds up fast on the OpenAI side. For short, single-purpose calls under 272K tokens, GPT-5.4-mini and nano are meaningfully cheaper than anything Anthropic offers.</p>
+<p>The nuance that matters for automation: GPT-6 Astra (OpenAI's flagship) <em>doubles</em> its input price and adds a 1.5x output surcharge once you cross 272K tokens in a request -- and this repricing applies to the whole request, not just the overflow. Claude's Sonnet and Opus tiers hold their listed rate flat all the way to 1M tokens. If your workflow feeds a whole PDF, a long call transcript, or an accumulated conversation history into the model on every run, that surcharge adds up fast on the OpenAI side. For short, single-purpose calls under 272K tokens, GPT-6 Sol and Luna are meaningfully cheaper than anything Anthropic offers -- Luna in particular is OpenAI's cheapest model on the market at $0.10/$0.50 per million tokens.</p>
 
 <h2>Tool-calling reliability -- where it actually breaks in production</h2>
-<p>Spec sheets say both models support function calling / tool use. What they don't tell you: on multi-step agent chains (call a tool, read the result, decide the next tool, repeat 4-5 times), I've seen ChatGPT's GPT-5.4 occasionally hallucinate a tool name or malform a JSON argument on step 3 or 4 of a chain -- rare, but it happens more than with Claude on the same chain length. Claude Sonnet has been the more boring, predictable choice for anything with more than two sequential tool calls in n8n's AI Agent node. Boring is what you want at 2 a.m. when a workflow is running unattended.</p>
+<p>Spec sheets say both models support function calling / tool use. What they don't tell you: on multi-step agent chains (call a tool, read the result, decide the next tool, repeat 4-5 times), I've seen ChatGPT's flagship models occasionally hallucinate a tool name or malform a JSON argument on step 3 or 4 of a chain -- rare, but it happens more than with Claude on the same chain length. Claude Sonnet has been the more boring, predictable choice for anything with more than two sequential tool calls in n8n's AI Agent node. Boring is what you want at 2 a.m. when a workflow is running unattended.</p>
 <p>For single tool calls -- one API lookup, one database write -- both models are reliable enough that price should decide it, not reliability.</p>
 
 <h2>Learning curve / ease of use inside n8n</h2>
@@ -162,9 +162,9 @@
 <table>
 <tr><th>Your workflow is...</th><th>Pick</th></tr>
 <tr><td>Multi-step AI agent with 3+ chained tool calls</td><td>Claude Sonnet</td></tr>
-<tr><td>Single-shot classification, summarization, extraction</td><td>GPT-5.4-mini or nano</td></tr>
+<tr><td>Single-shot classification, summarization, extraction</td><td>GPT-6 Sol or Luna</td></tr>
 <tr><td>Feeding whole documents/transcripts (200K+ tokens) regularly</td><td>Claude Sonnet (flat-rate context)</td></tr>
-<tr><td>High-volume, low-complexity, cost-sensitive</td><td>GPT-5.4-nano</td></tr>
+<tr><td>High-volume, low-complexity, cost-sensitive</td><td>GPT-6 Luna</td></tr>
 <tr><td>Building the workflow itself via AI-generated JSON</td><td>Claude (via n8n's MCP server or Claude Code) -- see my <a href="n8n-vs-make.html">n8n vs Make</a> writeup on this</td></tr>
 </table>
 <p>In practice, the highest-value move isn't picking one model for the whole pipeline -- it's routing: cheap model for the 90% of steps that are simple, and the pricier flagship for the one step that actually needs top-tier reasoning. n8n's AI Agent node makes this trivial to set up as two separate nodes with two separate credentials.</p>
