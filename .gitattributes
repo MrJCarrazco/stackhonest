@@ -1,0 +1,31 @@
+# Binary assets must NEVER get CRLF line-ending translation.
+#
+# This file exists separately from the parent repo's .gitattributes because
+# git resolves attributes PER REPOSITORY: .gitattributes is not inherited
+# across a submodule boundary. This repo is a submodule of
+# hermes-revenue-backup (at affiliate_engine/site), and a restore is
+# `git clone --recurse-submodules`, so without the rules below this repo's
+# binaries are protected only by git's NUL-byte auto-detection.
+#
+# Measured in the parent repo 2026-10-04: with core.autocrlf=true (the
+# git-for-windows default, and the setting on this host) a plain clone
+# rewrote LF->CRLF inside binary blobs and produced 282 of 329 unreadable
+# PDFs. Only 47 survived, saved by auto-detection alone. og-banner.png here
+# was relying on that same luck.
+* text=auto
+
+*.png    binary
+*.jpg    binary
+*.jpeg   binary
+*.gif    binary
+*.ico    binary
+*.webp   binary
+*.woff   binary
+*.woff2  binary
+*.ttf    binary
+*.otf    binary
+*.pdf    binary
+*.zip    binary
+*.gz     binary
+*.mp4    binary
+*.mp3    binary
