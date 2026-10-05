@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Vultr&#39;s Cheapest VPS (2026): $2.50/mo Is IPv6-Only &mdash; $3.50 Is the Real Floor</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/vultr-cheapest-vps-price-per-month.html">
+<meta name="description" content="Vultr's entry Cloud Compute plan is $2.50/mo but it has no IPv4 address; the cheapest plan with one is $3.50/mo (1 vCPU, 0.5 GB RAM, 10 GB, 0.5 TB bandwidth). Overage is $0.01/GB, snapshots $0.05/GB/mo, automatic backups add 20% to the base fee, DDoS protection $10/mo. Compared against DigitalOcean's $4.00 Droplet and Hostinger KVM 1. Verified October 5 2026.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How much is the cheapest Vultr VPS per month?", "acceptedAnswer": {"@type": "Answer", "text": "$2.50 per month, or $0.004 per hour, for 1 vCPU, 0.5 GB of memory, 10 GB of storage and 0.5 TB of bandwidth on Vultr's Regular Performance Cloud Compute line. That row carries an \"IPv6 Only\" badge on vultr.com/pricing, meaning the instance has no public IPv4 address. The cheapest plan with the same specs and an IPv4 address is $3.50/mo ($0.005/hr). Both figures were read off Vultr's pricing page on October 5 2026."}}, {"@type": "Question", "name": "Does Vultr's $2.50 plan come with an IPv4 address?", "acceptedAnswer": {"@type": "Answer", "text": "No. The $2.50/mo row is marked \"IPv6 Only\" on the pricing page. If anything needs to reach your server over IPv4 -- an office network without IPv6, a webhook sender that is IPv4-only, or your own ISP -- you want the $3.50/mo row instead. Vultr does not publish a standalone per-IPv4-address price on its pricing page; the only number the page gives you is the $1.00/month difference between those two otherwise identical plans."}}, {"@type": "Question", "name": "What is Vultr's bandwidth overage rate?", "acceptedAnswer": {"@type": "Answer", "text": "$0.01 per GB for bandwidth used beyond your plan's quota, per Vultr's own pricing FAQ. On the entry plans the quota is 0.5 TB, so exceeding it by 500 GB adds $5.00 -- double the price of the $2.50 instance itself. Bandwidth quota scales with plan size: 1 TB at $5/mo, 2 TB at $10/mo, 3 TB at $15 and $20, up to 15 TB at the $640/mo tier."}}, {"@type": "Question", "name": "How much do Vultr backups and snapshots cost?", "acceptedAnswer": {"@type": "Answer", "text": "They are priced two different ways. Automatic backups are not a flat fee: Vultr's FAQ states an instance with automatic backups enabled has a 20% higher base monthly/hourly fee, so backups on the $2.50 plan cost $0.50/mo and on a $40 plan cost $8/mo. Stored snapshots are metered separately at $0.05/GB per month, which Vultr notes is subject to change. DDoS protection is a further $10/mo per instance."}}, {"@type": "Question", "name": "Is Vultr cheaper than DigitalOcean?", "acceptedAnswer": {"@type": "Answer", "text": "At the very bottom, yes, but the gap is small and the specs differ. Vultr's entry is $2.50/mo IPv6-only or $3.50/mo with IPv4 (0.5 GB RAM, 10 GB disk, 0.5 TB transfer). DigitalOcean's cheapest Basic Droplet is $4.00/mo for 512 MiB RAM, 10 GiB SSD and 500 GiB transfer. Both charge $0.01 per GB of overage. DigitalOcean moved to per-second billing effective January 1 2026 with a 60-second minimum; Vultr bills hourly. Both pages verified October 5 2026."}}, {"@type": "Question", "name": "Is a $2.50 VPS enough to run anything real?", "acceptedAnswer": {"@type": "Answer", "text": "0.5 GB of RAM is enough for a static site, a small reverse proxy, a Tailscale or WireGuard node, a cron runner or a tiny bot. It is not enough for most self-hosted app stacks: n8n's own documentation asks for more, and anything running a database plus an application container on half a gigabyte will swap or get OOM-killed. If you are sizing a box for self-hosted automation specifically, compare RAM per dollar rather than the headline monthly price -- Hostinger's KVM 1 advertises 4 GB at a promotional $6.49/mo, which is eight times the memory for under twice the money, at the cost of paying the term upfront."}}]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Vultr&#39;s Cheapest VPS (2026): $2.50/mo Is IPv6-Only &mdash; $3.50 Is the Real Floor">
+<meta property="og:description" content="Vultr's $2.50/mo plan is IPv6-only; $3.50 is the cheapest with IPv4. Backups add 20%, snapshots $0.05/GB/mo, overage $0.01/GB. vs DigitalOcean $4.00 and Hostinger KVM 1. Verified Oct 5 2026.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/vultr-cheapest-vps-price-per-month.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Vultr&#39;s Cheapest VPS (2026): $2.50/mo Is IPv6-Only &mdash; $3.50 Is the Real Floor">
+<meta name="twitter:description" content="Vultr's $2.50/mo plan is IPv6-only; $3.50 is the cheapest with IPv4. Backups add 20%, snapshots $0.05/GB/mo, overage $0.01/GB. vs DigitalOcean $4.00 and Hostinger KVM 1. Verified Oct 5 2026.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Vultr's Cheapest VPS (2026): $2.50/mo Is IPv6-Only -- $3.50 Is the Real Floor", "description": "Vultr's entry Cloud Compute plan is $2.50/mo but it has no IPv4 address; the cheapest plan with one is $3.50/mo (1 vCPU, 0.5 GB RAM, 10 GB, 0.5 TB bandwidth). Overage is $0.01/GB, snapshots $0.05/GB/mo, automatic backups add 20% to the base fee, DDoS protection $10/mo. Compared against DigitalOcean's $4.00 Droplet and Hostinger KVM 1. Verified October 5 2026.", "url": "https://mrjcarrazco.github.io/stackhonest/vultr-cheapest-vps-price-per-month.html", "image": "https://mrjcarrazco.github.io/stackhonest/og-banner.png", "datePublished": "2026-10-05", "dateModified": "2026-10-05", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mrjcarrazco.github.io/stackhonest/vultr-cheapest-vps-price-per-month.html"}, "author": {"@type": "Person", "name": "Juan Carrazco", "url": "https://mrjcarrazco.github.io/stackhonest/about.html"}, "publisher": {"@type": "Organization", "name": "StackHonest", "url": "https://mrjcarrazco.github.io/stackhonest/", "logo": {"@type": "ImageObject", "url": "https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="systeme-io-vs-kartra-pricing.html">Systeme.io vs Kartra</a>
+<a href="systeme-io-vs-kajabi-pricing.html">Systeme.io vs Kajabi</a>
+<a href="systeme-io-vs-gohighlevel-pricing.html">Systeme.io vs GoHighLevel</a>
+<a href="how-to-build-a-saas-landing-page-with-systeme-io.html">Build a SaaS Landing Page</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+
+<a href="pictory-review-faceless-youtube.html">Pictory Review</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+
+<a href="how-to-self-host-n8n-cheap.html">Self-Host n8n Cheap</a>
+<a href="missed-call-text-back-automation-setup.html">Missed Call Text Back</a>
+<a href="n8n-error-handling-and-retry-workflows.html">n8n Error Handling & Retries</a>
+<a href="systeme-io-affiliate-program-setup-guide.html">Systeme.io Affiliate Setup Guide</a>
+<a href="systeme-io-vs-mailchimp.html">Systeme.io vs Mailchimp</a>
+<a href="systeme-io-vs-leadpages.html">Systeme.io vs Leadpages</a>
+<a href="systeme-io-evergreen-webinar-setup.html">Systeme.io Evergreen Webinars</a>
+<a href="systeme-io-vs-teachable.html">Systeme.io vs Teachable</a>
+<a href="systeme-io-vs-podia.html">Systeme.io vs Podia</a>
+<a href="systeme-io-vs-thinkific-pricing.html">Systeme.io vs Thinkific</a>
+<a href="systeme-io-vs-builderall.html">Systeme.io vs Builderall</a>
+<a href="systeme-io-vs-kit-for-creators.html">Systeme.io vs Kit</a>
+<a href="zapier-alternatives-free-unlimited.html">Zapier Alternatives (Free/Unlimited)</a>
+<a href="elevenlabs-alternatives-cheaper.html">Cheaper ElevenLabs Alternatives</a>
+<a href="koala-writer-review.html">Koala Writer Review</a>
+<a href="n8n-ai-agent-templates-free.html">Free n8n AI Agent Templates</a>
+<a href="elevenlabs-voice-cloning-cost-breakdown.html">Voice Cloning Cost Breakdown</a>
+<a href="systeme-io-vs-hubspot.html">Systeme.io vs HubSpot</a>
+<a href="systeme-io-sell-digital-products-setup.html">Sell Digital Products on Systeme.io</a>
+<a href="neuronwriter-vs-koala-ai-for-affiliate-sites.html">NeuronWriter vs Koala AI</a>
+<a href="systeme-io-vs-activecampaign.html">Systeme.io vs ActiveCampaign</a>
+<a href="systeme-io-vs-wix.html">Systeme.io vs Wix</a>
+<a href="getresponse-ai-email-generator-review.html">GetResponse AI Email Generator</a>
+<a href="systeme-io-vs-squarespace.html">Systeme.io vs Squarespace</a>
+<a href="best-ai-automation-for-dropshipping.html">Dropshipping Automation</a>
+
+<a href="best-ai-tools-for-newsletter-automation.html">Newsletter Automation Tools</a>
+<a href="best-ai-tools-for-ecommerce-product-descriptions.html">E-Commerce Product Descriptions</a>
+<a href="best-ai-tools-for-podcast-production.html">AI Podcast Production</a>
+<a href="how-to-track-affiliate-link-clicks-and-conversions.html">Track Affiliate Clicks</a>
+
+<a href="systeme-io-pricing-plans-explained-2026.html">Systeme.io Pricing Explained</a>
+<a href="descript-transcription-pricing-limits-2026.html">Descript Transcription Limits</a>
+<a href="calendly-free-plan-event-type-limit.html">Calendly Free Plan Limits</a>
+<a href="stripe-fees-explained-2026.html">Stripe Fees Explained</a>
+<a href="wave-free-invoicing-review-2026.html">Wave Free Invoicing</a>
+<a href="vultr-cheapest-vps-price-per-month.html">Vultr Cheapest VPS</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>Vultr's Cheapest VPS (2026): $2.50/mo Is IPv6-Only &mdash; $3.50 Is the Real Floor</h1>
+<p class="meta">Last updated October 5, 2026 &middot; ~10 min read &middot; by Juan</p>
+<div class="disclosure"><strong>Affiliate disclosure:</strong> the Hostinger links on this page are affiliate links &mdash; if you sign up through one I earn a commission at no extra cost to you. Vultr, DigitalOcean and Hetzner have no affiliate relationship with this site, so every link to those vendors is a plain editorial citation to the page I read the numbers off. Nothing here is sponsored, and no vendor saw this before it went live.</div>
+
+<p><strong>Short answer:</strong> the cheapest instance on <a href="https://www.vultr.com/pricing/">Vultr's pricing page</a> is <strong>$2.50/month ($0.004/hour)</strong> for 1 vCPU, 0.5&nbsp;GB of memory, 10&nbsp;GB of storage and 0.5&nbsp;TB of bandwidth &mdash; but that row is badged <strong>"IPv6 Only"</strong>, so it has no public IPv4 address. The cheapest plan with identical specs <em>and</em> an IPv4 address is <strong>$3.50/month ($0.005/hour)</strong>. For most people that $3.50 figure, not $2.50, is the real entry price. Everything below was read directly off each vendor's own pricing page on <strong>October 5, 2026</strong>.</p>
+
+<h2>The premise I had to correct: "low single digits per month" hides an asterisk</h2>
+<p>The brief that sent me to this page said Vultr's lowest-cost cloud compute instance "starts in the low single digits per month with hourly billing." Both halves are technically true and the sentence is still misleading, because the number everyone quotes is attached to a plan most people cannot actually use as-is.</p>
+<ul>
+<li><strong>Correct: $2.50/mo exists, and billing is hourly.</strong> Vultr's Regular Performance table lists both a monthly and an hourly price for every row, and the bottom row is $2.50/mo or $0.004/hr.</li>
+<li><strong>Omitted: that row has no IPv4 address.</strong> Vultr prints a small <strong>"IPv6 Only"</strong> badge next to the $0.004/hr price. The very next row is the same 1 vCPU / 0.5&nbsp;GB / 10&nbsp;GB / 0.5&nbsp;TB machine at <strong>$3.50/mo ($0.005/hr)</strong> &mdash; the difference between the two is the address, and it costs $1.00/month.</li>
+<li><strong>Why that matters practically:</strong> if your home ISP, your office network, a payment provider's webhook sender or a client's firewall is IPv4-only, an IPv6-only box is unreachable from it. You can work around it with a proxy, but "work around it" is not what people mean when they quote a $2.50 VPS.</li>
+<li><strong>The brief also listed "IPv4" under hidden costs.</strong> That framing does not match the page: <strong>Vultr publishes no standalone per-IPv4-address fee on vultr.com/pricing</strong>. The only IPv4 price signal on that page is the $1.00/month gap between those two plans. I am not going to invent a line item that the vendor does not print.</li>
+</ul>
+
+<h2>Entry-tier specs and price, exactly as the page lists them</h2>
+<p>Vultr's Cloud Compute line splits into Regular Performance (previous-generation Intel, regular SSD), High Performance (AMD EPYC or Intel Xeon, NVMe) and High Frequency (3GHz+ Xeon, NVMe). The cheap end lives entirely in Regular Performance. Monthly and hourly, both columns, October 5 2026:</p>
+<table>
+<thead><tr><th>vCPU</th><th>Memory</th><th>Storage</th><th>Bandwidth</th><th>Monthly</th><th>Hourly</th><th>Note</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>0.5 GB</td><td>10 GB</td><td>0.50 TB</td><td><strong>$2.50</strong></td><td>$0.004</td><td><strong>IPv6 only</strong></td></tr>
+<tr><td>1</td><td>0.5 GB</td><td>10 GB</td><td>0.50 TB</td><td><strong>$3.50</strong></td><td>$0.005</td><td>Cheapest with IPv4</td></tr>
+<tr><td>1</td><td>1 GB</td><td>25 GB</td><td>1.00 TB</td><td>$5.00</td><td>$0.007</td><td>&mdash;</td></tr>
+<tr><td>1</td><td>2 GB</td><td>55 GB</td><td>2.00 TB</td><td>$10.00</td><td>$0.015</td><td>&mdash;</td></tr>
+<tr><td>2</td><td>2 GB</td><td>65 GB</td><td>3.00 TB</td><td>$15.00</td><td>$0.022</td><td>&mdash;</td></tr>
+<tr><td>2</td><td>4 GB</td><td>80 GB</td><td>3.00 TB</td><td>$20.00</td><td>$0.030</td><td>&mdash;</td></tr>
+<tr><td>4</td><td>8 GB</td><td>160 GB</td><td>4.00 TB</td><td>$40.00</td><td>$0.060</td><td>&mdash;</td></tr>
+</tbody>
+</table>
+<p>For context on what the extra money buys: the cheapest <strong>High Performance</strong> row (AMD or Intel, both priced identically) is <strong>$6.00/mo, $0.009/hr</strong> for 1 vCPU, 1&nbsp;GB, 25&nbsp;GB NVMe and 2&nbsp;TB bandwidth. So the newer CPU generation and NVMe storage cost $1.00/month more than the equivalent Regular Performance 1&nbsp;GB plan, which is a smaller premium than most people assume.</p>
+<p>One line on that page worth reading twice, because it is the only place Vultr mentions an hours cap: the VX1 product description states that VX1 instances "are billed on actual hours used each month and are not capped at 672 hours." 672 hours is 28 days. Vultr prints that as a VX1 differentiator and does not restate the rule for the Cloud Compute plans, so I will say precisely what the page says and no more: VX1 is explicitly uncapped, and the page does not spell out the hourly-billing cap behaviour for the cheap Cloud Compute tiers anywhere I could find.</p>
+
+<h2>Bandwidth overage, and why it bites hardest at the bottom</h2>
+<p>From Vultr's own pricing FAQ: <strong>"We charge $0.01 per GB for bandwidth used in excess of your quota."</strong> That rate is flat and the same whichever plan you are on &mdash; what changes is how much quota you start with, and the cheap plans start with very little.</p>
+<table>
+<thead><tr><th>Plan</th><th>Included bandwidth</th><th>Cost of 500 GB over</th><th>Overage as % of plan</th></tr></thead>
+<tbody>
+<tr><td>$2.50/mo</td><td>0.50 TB</td><td>$5.00</td><td><strong>200%</strong></td></tr>
+<tr><td>$3.50/mo</td><td>0.50 TB</td><td>$5.00</td><td>143%</td></tr>
+<tr><td>$5.00/mo</td><td>1.00 TB</td><td>$5.00</td><td>100%</td></tr>
+<tr><td>$10.00/mo</td><td>2.00 TB</td><td>$5.00</td><td>50%</td></tr>
+<tr><td>$40.00/mo</td><td>4.00 TB</td><td>$5.00</td><td>13%</td></tr>
+</tbody>
+</table>
+<p>That table is multiplication on Vultr's published rate, not a measurement &mdash; redo it yourself. The point it makes is structural: on the $2.50 plan, half a terabyte of unplanned traffic triples your bill, while the same half-terabyte is a rounding error on a $40 box. If whatever you are hosting can get linked somewhere busy, the cheapest plan is also the one with the most violent failure mode.</p>
+
+<h2>The add-ons that are not in the sticker price</h2>
+<p>All four figures below come from Vultr's own pricing FAQ and add-on sections, October 5 2026:</p>
+<ul>
+<li><strong>Automatic backups are not a flat fee &mdash; they are a percentage.</strong> Vultr's FAQ: "An instance with automatic backups enabled will have a 20% higher base monthly/hourly fee." So backups cost $0.50/mo on the $2.50 plan, $0.70 on the $3.50 plan, and $8.00/mo on a $40 plan. Budget this as a multiplier, not a line item.</li>
+<li><strong>Stored snapshots: $0.05/GB per month</strong>, with Vultr adding "pricing subject to change" in the same answer. A 10&nbsp;GB snapshot of the entry instance is $0.50/month, which is another 20% on top of a $2.50 box.</li>
+<li><strong>DDoS protection: $10/month per instance</strong>, adding 10&nbsp;Gbps of mitigation capacity. On the entry plan that is four times the cost of the server.</li>
+<li><strong>Block storage: $1.00/month per 10&nbsp;GB</strong> of NVMe. Useful if you want a small instance with a bigger disk rather than paying for a larger plan you do not need the CPU for.</li>
+<li><strong>Windows licences are not included.</strong> Vultr's FAQ states plainly that the monthly price excludes a Windows licence and that the extra cost varies by compute plan. No figure is published on the pricing page, so none appears here.</li>
+<li><strong>Prices are not identical in every region.</strong> Vultr's FAQ says certain global data-centre locations "may have different per hour and per month pricing," and that the current location pricing lives in the control panel. So the $2.50 you read on the marketing page is not a guarantee in every city.</li>
+</ul>
+<p>Stacked honestly: a $2.50 instance with automatic backups and a 10&nbsp;GB snapshot is $3.50/month before you have added an IPv4 address. With the address it is $4.20. The headline number is real; it is just not what a working box costs.</p>
+
+<h2>How it compares to DigitalOcean &mdash; and why there are no Hetzner numbers here</h2>
+<p><a href="https://www.digitalocean.com/pricing/droplets">DigitalOcean's Droplet pricing page</a>, read the same day, is the cleanest comparison because it publishes both hourly and monthly in the same table:</p>
+<table>
+<thead><tr><th>Provider / plan</th><th>vCPU</th><th>Memory</th><th>Disk</th><th>Transfer</th><th>Monthly</th><th>Hourly</th></tr></thead>
+<tbody>
+<tr><td>Vultr Regular (IPv6 only)</td><td>1</td><td>0.5 GB</td><td>10 GB</td><td>0.5 TB</td><td><strong>$2.50</strong></td><td>$0.004</td></tr>
+<tr><td>Vultr Regular (with IPv4)</td><td>1</td><td>0.5 GB</td><td>10 GB</td><td>0.5 TB</td><td><strong>$3.50</strong></td><td>$0.005</td></tr>
+<tr><td>DigitalOcean Basic Droplet</td><td>1</td><td>512 MiB</td><td>10 GiB</td><td>500 GiB</td><td><strong>$4.00</strong></td><td>$0.00595</td></tr>
+<tr><td>DigitalOcean Basic Droplet</td><td>1</td><td>1 GiB</td><td>25 GiB</td><td>1,000 GiB</td><td>$6.00</td><td>$0.00893</td></tr>
+<tr><td>Vultr Regular</td><td>1</td><td>1 GB</td><td>25 GB</td><td>1 TB</td><td>$5.00</td><td>$0.007</td></tr>
+</tbody>
+</table>
+<p>At matched specs Vultr undercuts DigitalOcean by $0.50&ndash;$1.00/month at the bottom of the ladder. Two differences that matter more than the dollar:</p>
+<ul>
+<li><strong>Billing granularity.</strong> DigitalOcean's page states that effective January 1 2026 Droplets moved to <strong>per-second billing with a minimum charge of 60 seconds or $0.01, whichever is higher</strong>. Vultr's tables quote hourly. For always-on servers this is irrelevant; for short-lived test boxes and CI runners it is not.</li>
+<li><strong>Backup pricing shape.</strong> DigitalOcean charges <strong>20% (weekly) or 30% (daily) of the Droplet cost</strong> for percentage-based backups, or usage-based backups from <strong>$0.01/GiB per month</strong>; snapshots are <strong>$0.06/GB per month</strong>. Vultr is 20% for automatic backups and $0.05/GB for snapshots. Near-identical, except DigitalOcean charges more for daily and publishes a cheaper usage-based option.</li>
+<li><strong>Overage is the same number at both:</strong> $0.01 per GiB/GB, with DigitalOcean pooling the allowance across your account rather than metering per Droplet.</li>
+</ul>
+<p><strong>On Hetzner: I am not quoting any numbers, and that is deliberate.</strong> The brief asked for a Hetzner comparison. I loaded hetzner.com/cloud and the individual plan pages in a real browser, accepted the cookie banner, and the price components rendered as <strong>&euro;&nbsp;0.00</strong> with the surrounding text reading only "starting from &hellip; max/mo." with the numbers absent. Two other things I did observe on that page and can report: Hetzner's <strong>Cost-Optimized</strong> shared-resource line is badged <strong>"Currently not available"</strong>, and its Regular Performance CPX plan pages state <strong>"Price incl. IPv4"</strong> with inclusive traffic listed per plan (1&ndash;5&nbsp;TB on the CPX11&ndash;CPX51 series, and 20&nbsp;TB on the CPX12&ndash;CPX62 series). Since I could not read a price I will not publish one, and I would treat any article quoting precise Hetzner euro figures today without saying where they rendered with some suspicion.</p>
+
+<h2>When a cheap cloud instance is the wrong shape entirely</h2>
+<p>The $2.50&ndash;$5.00 cloud tier is priced per hour and sized for small, stateless, low-memory jobs. If what you actually want is a box to self-host an application stack on &mdash; the single most common reason people go VPS shopping &mdash; the binding constraint is RAM, and the cheap cloud tier runs out of it before it runs out of anything else.</p>
+<p>For that job the fixed-term shared-hosting providers win on memory per dollar, and <a href="https://www.hostinger.com/vps-hosting" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:hostinger]">Hostinger's VPS line</a> is the one I keep coming back to because it bundles the one-click application templates. From hostinger.com/vps-hosting, October 5 2026:</p>
+<table>
+<thead><tr><th>Plan</th><th>vCPU</th><th>RAM</th><th>NVMe</th><th>Bandwidth</th><th>Promo rate</th><th>Renews at</th></tr></thead>
+<tbody>
+<tr><td>KVM 1</td><td>1</td><td>4 GB</td><td>50 GB</td><td>4 TB</td><td><strong>$6.49/mo</strong> (list $19.49)</td><td>$11.99/mo for 2 years</td></tr>
+<tr><td>KVM 2</td><td>2</td><td>8 GB</td><td>100 GB</td><td>8 TB</td><td><strong>$8.99/mo</strong> (list $24.49)</td><td>$14.99/mo for 2 years</td></tr>
+<tr><td>KVM 4</td><td>4</td><td>16 GB</td><td>200 GB</td><td>16 TB</td><td><strong>$12.99/mo</strong> (list $42.99)</td><td>$28.99/mo for 2 years</td></tr>
+<tr><td>KVM 8</td><td>8</td><td>32 GB</td><td>400 GB</td><td>32 TB</td><td><strong>$25.99/mo</strong> (list $73.99)</td><td>$49.99/mo for 2 years</td></tr>
+</tbody>
+</table>
+<p>Hold the two models next to each other and the trade is obvious rather than close:</p>
+<ul>
+<li><strong>Memory per dollar goes to Hostinger, by a lot.</strong> KVM 1 is 4&nbsp;GB at a promotional $6.49/mo. Vultr's cheapest 4&nbsp;GB plan is $20.00/mo. That is eight times the RAM of Vultr's $3.50 entry plan for under twice the price, and 4&nbsp;TB of bandwidth instead of 0.5&nbsp;TB.</li>
+<li><strong>Commitment and the renewal cliff go to Vultr.</strong> Hostinger's page states plainly that <strong>"All plans are paid upfront. The monthly rate reflects the total plan price divided by the number of months in your plan,"</strong> and each card names a renewal price roughly <strong>85% higher</strong> than the promo ($6.49 &rarr; $11.99 on KVM 1). At $6.49/mo over a 24-month term that is $155.76 paid up front &mdash; my arithmetic on their published rate, not a figure they print &mdash; against $3.50 charged hourly and cancellable any time at Vultr.</li>
+<li><strong>Tax.</strong> Hostinger's footer states "Prices are listed without VAT." Vultr's pricing FAQ names taxes and fees among the reasons regional prices vary. Neither headline number is your final number everywhere.</li>
+</ul>
+<p>So: if you want the smallest possible always-on box and the freedom to destroy it this afternoon, Vultr at $3.50 is the honest answer. If you want enough memory to actually run something and you are prepared to pay two years up front at a rate that nearly doubles on renewal, <a href="https://www.hostinger.com/self-hosted-n8n" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:hostinger]">Hostinger KVM 1 or KVM 2</a> is better value per gigabyte. I walked through sizing one of those for a specific workload in <a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>, and compared the whole hosting field in <a href="best-n8n-hosting-options.html">best n8n hosting options</a>.</p>
+
+<h2>What I could not verify, and will not guess</h2>
+<ul>
+<li><strong>Hetzner's prices.</strong> The price elements on hetzner.com/cloud and its plan pages rendered &euro;&nbsp;0.00 in a real browser session with cookies accepted. No Hetzner figure appears anywhere above.</li>
+<li><strong>Vultr's Windows licence cost.</strong> The FAQ confirms it is extra and varies by plan, and publishes no number on that page.</li>
+<li><strong>Region-specific Vultr pricing.</strong> Vultr says some locations differ and that the live numbers are in the control panel. Every figure above is the marketing page's default.</li>
+<li><strong>Performance.</strong> There is no audited public benchmark comparing these providers' entry instances that I would stand behind, and I have not run one. Nothing on this page claims a speed, uptime or latency figure for any provider &mdash; only the prices and specs each vendor prints.</li>
+<li><strong>Hostinger's exact upfront total and term length at checkout.</strong> $155.76 is 24 &times; $6.49, which is arithmetic on the advertised rate against the renewal wording on the card ("for 2 years"). I did not proceed to checkout, so confirm the term, the total and the tax there.</li>
+<li><strong>Whether the 672-hour note applies beyond VX1.</strong> Vultr prints it as a VX1 property. I am not extending it to other product lines on an inference.</li>
+</ul>
+
+<h2>Verdict</h2>
+<div class="verdict"><strong>The cheapest usable Vultr VPS is $3.50/month, not $2.50.</strong> The $2.50 row is real but IPv6-only; the dollar more buys the IPv4 address most setups need. Add automatic backups (+20%) and a snapshot ($0.05/GB/mo) and a working entry box is around $4.20/month. It is genuinely the lowest sticker price of the three providers I could price &mdash; just never the number people repeat.</div>
+<p>If raw memory per dollar is what you are shopping for rather than the lowest possible monthly minimum, <a href="https://www.hostinger.com/vps-hosting" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:hostinger]">Hostinger's KVM tiers</a> give you 4&ndash;32&nbsp;GB of RAM at a promotional rate, with the catch that you pay the term upfront and the renewal is roughly 85% higher. Read the renewal line on the card before the promo price convinces you.</p>
+<p>More on keeping infrastructure costs honest: the <a href="best-ai-automation-tools.html">best AI automation tools</a> hub maps where hosting sits in a one-person stack, <a href="how-to-self-host-n8n-cheap.html">how to self-host n8n cheap</a> is the step-by-step once you have picked a box, <a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs self-hosted cost</a> does the break-even arithmetic, and <a href="stripe-fees-explained-2026.html">Stripe fees explained</a> applies the same "the headline rate is not the real rate" treatment to payments. If you want something to run on the server once it is up, start with the <a href="free-n8n-templates.html">free n8n templates</a>.</p>
+
+<h2>FAQ</h2>
+<h3>How much is the cheapest Vultr VPS per month?</h3>
+<p>$2.50 per month, or $0.004 per hour, for 1 vCPU, 0.5 GB of memory, 10 GB of storage and 0.5 TB of bandwidth on Vultr's Regular Performance Cloud Compute line. That row carries an "IPv6 Only" badge on vultr.com/pricing, meaning the instance has no public IPv4 address. The cheapest plan with the same specs and an IPv4 address is $3.50/mo ($0.005/hr). Both figures were read off Vultr's pricing page on October 5 2026.</p>
+<h3>Does Vultr's $2.50 plan come with an IPv4 address?</h3>
+<p>No. The $2.50/mo row is marked "IPv6 Only" on the pricing page. If anything needs to reach your server over IPv4 -- an office network without IPv6, a webhook sender that is IPv4-only, or your own ISP -- you want the $3.50/mo row instead. Vultr does not publish a standalone per-IPv4-address price on its pricing page; the only number the page gives you is the $1.00/month difference between those two otherwise identical plans.</p>
+<h3>What is Vultr's bandwidth overage rate?</h3>
+<p>$0.01 per GB for bandwidth used beyond your plan's quota, per Vultr's own pricing FAQ. On the entry plans the quota is 0.5 TB, so exceeding it by 500 GB adds $5.00 -- double the price of the $2.50 instance itself. Bandwidth quota scales with plan size: 1 TB at $5/mo, 2 TB at $10/mo, 3 TB at $15 and $20, up to 15 TB at the $640/mo tier.</p>
+<h3>How much do Vultr backups and snapshots cost?</h3>
+<p>They are priced two different ways. Automatic backups are not a flat fee: Vultr's FAQ states an instance with automatic backups enabled has a 20% higher base monthly/hourly fee, so backups on the $2.50 plan cost $0.50/mo and on a $40 plan cost $8/mo. Stored snapshots are metered separately at $0.05/GB per month, which Vultr notes is subject to change. DDoS protection is a further $10/mo per instance.</p>
+<h3>Is Vultr cheaper than DigitalOcean?</h3>
+<p>At the very bottom, yes, but the gap is small and the specs differ. Vultr's entry is $2.50/mo IPv6-only or $3.50/mo with IPv4 (0.5 GB RAM, 10 GB disk, 0.5 TB transfer). DigitalOcean's cheapest Basic Droplet is $4.00/mo for 512 MiB RAM, 10 GiB SSD and 500 GiB transfer. Both charge $0.01 per GB of overage. DigitalOcean moved to per-second billing effective January 1 2026 with a 60-second minimum; Vultr bills hourly. Both pages verified October 5 2026.</p>
+<h3>Is a $2.50 VPS enough to run anything real?</h3>
+<p>0.5 GB of RAM is enough for a static site, a small reverse proxy, a Tailscale or WireGuard node, a cron runner or a tiny bot. It is not enough for most self-hosted app stacks: n8n's own documentation asks for more, and anything running a database plus an application container on half a gigabyte will swap or get OOM-killed. If you are sizing a box for self-hosted automation specifically, compare RAM per dollar rather than the headline monthly price -- Hostinger's KVM 1 advertises 4 GB at a promotional $6.49/mo, which is eight times the memory for under twice the money, at the cost of paying the term upfront.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest &mdash; AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
