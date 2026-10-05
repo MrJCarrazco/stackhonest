@@ -160,7 +160,7 @@
 </ul>
 
 <h2>The tools used</h2>
-<p>This build runs on <a href="https://n8n.io/">n8n</a> plus a Twilio account for the phone number and SMS sending -- no separate missed-call SaaS subscription required. If you do not already have n8n running, see my <a href="n8n-review-for-beginners-2026.html">full n8n review</a> or <a href="how-to-self-host-n8n-cheap.html">how to self-host n8n cheap</a> for the VPS route. For the lead-gen side of this same stack (what happens after the text-back conversation converts), see <a href="how-to-automate-lead-generation-with-n8n.html">how to automate lead generation with n8n</a>.</p>
+<p>This build runs on <a href="https://n8n.io/" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:n8n]">n8n</a> plus a Twilio account for the phone number and SMS sending -- no separate missed-call SaaS subscription required. If you do not already have n8n running, see my <a href="n8n-review-for-beginners-2026.html">full n8n review</a> or <a href="how-to-self-host-n8n-cheap.html">how to self-host n8n cheap</a> for the VPS route. For the lead-gen side of this same stack (what happens after the text-back conversation converts), see <a href="how-to-automate-lead-generation-with-n8n.html">how to automate lead generation with n8n</a>.</p>
 <h2>FAQ</h2>
 <h3>How do I set up missed call text back automation?</h3>
 <p>Wire your phone number missed-call/no-answer webhook (Twilio Status Callback if you use a Twilio number, or your VoIP provider webhook) into an automation tool that fires an SMS reply within seconds. On n8n you build this as a Webhook trigger, an IF node that checks the call status is no-answer or busy, and a Twilio SMS node that sends the text -- three nodes, no monthly SaaS fee beyond your VPS and the per-text Twilio cost.</p>
