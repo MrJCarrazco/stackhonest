@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Stripe Fees Explained (2026): What 2.9% + 30c Actually Costs You</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/stripe-fees-explained-2026.html">
+<meta name="description" content="Stripe's 2.9% + 30c is the ONLINE DOMESTIC CARD rate only -- in-person is 2.7% + 5c, and international adds 1.5%, currency conversion 1%, manually entered cards 0.5%. There is no single "chargeback fee": disputes carry a $15 received fee AND a $15 countered fee, and Smart Disputes charges 30% of the disputed amount when you WIN. Verified Oct 4 2026.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Is Stripe really 2.9% + 30 cents?", "acceptedAnswer": {"@type": "Answer", "text": "For one specific case: a successful ONLINE payment with a domestic card. stripe.com/pricing states 2.9% + 30c \"per successful transaction for domestic cards\" under online payments. In-person payments through Stripe Terminal are a different base rate -- 2.7% + 5c. On top of the online rate the same page lists +0.5% for manually entered cards, +1.5% for international cards, and +1% if currency conversion is required. So 2.9% + 30c is a floor for one channel, not a ceiling for your account."}}, {"@type": "Question", "name": "What is Stripe's chargeback fee in 2026?", "acceptedAnswer": {"@type": "Answer", "text": "There is no line item called \"chargeback fee\" on stripe.com/pricing. The page lists a $15.00 dispute received fee \"for each dispute you receive\" and a separate $15.00 dispute countered fee \"for each dispute you respond to manually\" -- which you get back if you win and do not get back if you lose. Stripe's AI-assisted Smart Disputes carries a third fee: 30% of the disputed amount, charged for each dispute you WIN, with no Smart Disputes fee on losses. The received fee still applies in all cases."}}, {"@type": "Question", "name": "Does Stripe have monthly fees?", "acceptedAnswer": {"@type": "Answer", "text": "Not for Payments. The pricing page's FAQ says Stripe \"does not charge setup fees, monthly fees, or any other hidden fees like closure fees\" for businesses on standard pricing. But the products most stores bolt on do have monthly or percentage pricing: Billing is 0.7% of billing volume pay-as-you-go or from $620/mo on a one-year contract, Stripe Tax is 0.5% per transaction no-code or from $90/mo on contract, Invoicing is 0.4% per paid invoice, Radar is $0.05 per screened transaction or from $10/mo, Sigma is from $190/mo. A custom domain on Checkout or Payment Links is $10/mo."}}, {"@type": "Question", "name": "What is the effective Stripe fee on a small sale?", "acceptedAnswer": {"@type": "Answer", "text": "The 30c fixed component is what hurts at low ticket prices, and it is arithmetic you can do yourself. At a $3 sale, 2.9% + 30c is $0.39, which is 12.9% of the sale. At $10 it is $0.59, or 5.9%. At $50, $1.75 or 3.5%. At $100, $3.20 or 3.2%. At $1,000, $29.30 or 2.93%. The percentage you actually pay only approaches 2.9% as the order value grows, so bundling three $10 products into one $30 checkout is cheaper than three separate $10 checkouts."}}, {"@type": "Question", "name": "Is Stripe cheaper than Gumroad or Lemon Squeezy?", "acceptedAnswer": {"@type": "Answer", "text": "On headline rate, yes, but they are not the same product. Verified October 4 2026: Stripe standard is 2.9% + 30c and you remain the merchant of record, so sales tax and VAT compliance is your problem. Gumroad is 10% + $0.50 on direct sales and 30% through its Discover marketplace, and has been merchant of record since January 1 2025. Lemon Squeezy is 5% + 50c as merchant of record. Stripe's own merchant-of-record product, Managed Payments, is 3.5% per transaction ON TOP of Payments fees, so about 6.4% + 30c -- which on a $50 sale is $3.50 versus $1.75 for raw Stripe."}}, {"@type": "Question", "name": "Does Stripe refund its fee when I refund a customer?", "acceptedAnswer": {"@type": "Answer", "text": "No. The pricing FAQ is explicit: for standard pricing there are no fees for issuing refunds on card payments, but \"the payment processing, Connect and currency conversion fees from the original transaction are not returned.\" So a refunded $50 card sale costs you the $1.75 you already paid. Bank-transfer refunds can carry their own fee -- the local payment methods page lists $0.50 per successful refund on Bacs Direct Debit and on GBP bank transfers."}}, {"@type": "Question", "name": "How many disputes is too many on Stripe?", "acceptedAnswer": {"@type": "Answer", "text": "Stripe's docs give a number, and it is lower than most people expect. docs.stripe.com/disputes/measuring says \"the credit card processing industry standard recognizes dispute activity above 0.75% as excessive,\" and that a sudden spike can trigger a card-network monitoring program before you even reach 0.75%. At 400 sales a month, 0.75% is three disputes. The docs also note all disputes count toward the rate whether you win or lose, and that cardholders can dispute a charge up to 120 days after payment."}}]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stripe Fees Explained (2026): What 2.9% + 30c Actually Costs You">
+<meta property="og:description" content="2.9% + 30c is the online domestic card rate, not Stripe's whole price. In-person 2.7% + 5c; +1.5% international, +1% conversion, +0.5% keyed. Disputes: $15 + $15, Smart Disputes 30% of a WIN. Billing 0.7%, Tax 0.5%, Invoicing 0.4% stack on top. Verified Oct 4 2026.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/stripe-fees-explained-2026.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Stripe Fees Explained (2026): What 2.9% + 30c Actually Costs You">
+<meta name="twitter:description" content="2.9% + 30c is the online domestic card rate, not Stripe's whole price. In-person 2.7% + 5c; +1.5% international, +1% conversion, +0.5% keyed. Disputes: $15 + $15, Smart Disputes 30% of a WIN. Billing 0.7%, Tax 0.5%, Invoicing 0.4% stack on top. Verified Oct 4 2026.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Stripe Fees Explained (2026): What 2.9% + 30c Actually Costs You", "description": "Stripe's 2.9% + 30c is the ONLINE DOMESTIC CARD rate only -- in-person is 2.7% + 5c, and international adds 1.5%, currency conversion 1%, manually entered cards 0.5%. There is no single \"chargeback fee\": disputes carry a $15 received fee AND a $15 countered fee, and Smart Disputes charges 30% of the disputed amount when you WIN. Verified Oct 4 2026.", "url": "https://mrjcarrazco.github.io/stackhonest/stripe-fees-explained-2026.html", "image": "https://mrjcarrazco.github.io/stackhonest/og-banner.png", "datePublished": "2026-10-04", "dateModified": "2026-10-04", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mrjcarrazco.github.io/stackhonest/stripe-fees-explained-2026.html"}, "author": {"@type": "Person", "name": "Juan Carrazco", "url": "https://mrjcarrazco.github.io/stackhonest/about.html"}, "publisher": {"@type": "Organization", "name": "StackHonest", "url": "https://mrjcarrazco.github.io/stackhonest/", "logo": {"@type": "ImageObject", "url": "https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="systeme-io-vs-kartra-pricing.html">Systeme.io vs Kartra</a>
+<a href="systeme-io-vs-kajabi-pricing.html">Systeme.io vs Kajabi</a>
+<a href="systeme-io-vs-gohighlevel-pricing.html">Systeme.io vs GoHighLevel</a>
+<a href="how-to-build-a-saas-landing-page-with-systeme-io.html">Build a SaaS Landing Page</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+
+<a href="pictory-review-faceless-youtube.html">Pictory Review</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+
+<a href="how-to-self-host-n8n-cheap.html">Self-Host n8n Cheap</a>
+<a href="missed-call-text-back-automation-setup.html">Missed Call Text Back</a>
+<a href="n8n-error-handling-and-retry-workflows.html">n8n Error Handling & Retries</a>
+<a href="systeme-io-affiliate-program-setup-guide.html">Systeme.io Affiliate Setup Guide</a>
+<a href="systeme-io-vs-mailchimp.html">Systeme.io vs Mailchimp</a>
+<a href="systeme-io-vs-leadpages.html">Systeme.io vs Leadpages</a>
+<a href="systeme-io-evergreen-webinar-setup.html">Systeme.io Evergreen Webinars</a>
+<a href="systeme-io-vs-teachable.html">Systeme.io vs Teachable</a>
+<a href="systeme-io-vs-podia.html">Systeme.io vs Podia</a>
+<a href="systeme-io-vs-thinkific-pricing.html">Systeme.io vs Thinkific</a>
+<a href="systeme-io-vs-builderall.html">Systeme.io vs Builderall</a>
+<a href="systeme-io-vs-kit-for-creators.html">Systeme.io vs Kit</a>
+<a href="zapier-alternatives-free-unlimited.html">Zapier Alternatives (Free/Unlimited)</a>
+<a href="elevenlabs-alternatives-cheaper.html">Cheaper ElevenLabs Alternatives</a>
+<a href="koala-writer-review.html">Koala Writer Review</a>
+<a href="n8n-ai-agent-templates-free.html">Free n8n AI Agent Templates</a>
+<a href="elevenlabs-voice-cloning-cost-breakdown.html">Voice Cloning Cost Breakdown</a>
+<a href="systeme-io-vs-hubspot.html">Systeme.io vs HubSpot</a>
+<a href="systeme-io-sell-digital-products-setup.html">Sell Digital Products on Systeme.io</a>
+<a href="neuronwriter-vs-koala-ai-for-affiliate-sites.html">NeuronWriter vs Koala AI</a>
+<a href="systeme-io-vs-activecampaign.html">Systeme.io vs ActiveCampaign</a>
+<a href="systeme-io-vs-wix.html">Systeme.io vs Wix</a>
+<a href="getresponse-ai-email-generator-review.html">GetResponse AI Email Generator</a>
+<a href="systeme-io-vs-squarespace.html">Systeme.io vs Squarespace</a>
+<a href="best-ai-automation-for-dropshipping.html">Dropshipping Automation</a>
+
+<a href="best-ai-tools-for-newsletter-automation.html">Newsletter Automation Tools</a>
+<a href="best-ai-tools-for-ecommerce-product-descriptions.html">E-Commerce Product Descriptions</a>
+<a href="best-ai-tools-for-podcast-production.html">AI Podcast Production</a>
+<a href="how-to-track-affiliate-link-clicks-and-conversions.html">Track Affiliate Clicks</a>
+
+<a href="systeme-io-pricing-plans-explained-2026.html">Systeme.io Pricing Explained</a>
+<a href="descript-transcription-pricing-limits-2026.html">Descript Transcription Limits</a>
+<a href="calendly-free-plan-event-type-limit.html">Calendly Free Plan Limits</a>
+<a href="stripe-fees-explained-2026.html">Stripe Fees Explained</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>Stripe Fees Explained (2026): What 2.9% + 30c Actually Costs You</h1>
+<p class="meta">Verified against stripe.com/pricing, stripe.com/pricing/local-payment-methods and docs.stripe.com on October 4, 2026. Every number below was read off a vendor page, not a roundup.</p>
+
+<div class="disclosure"><strong>Disclosure:</strong> Stripe has no affiliate program I am part of, so every Stripe link on this page is a plain editorial link to Stripe's own documentation. One link further down, to Systeme.io, is an affiliate link &mdash; if you sign up through it I earn a commission at no extra cost to you. I will also tell you exactly where Systeme.io's "0% transaction fees" claim stops being the whole story.</div>
+
+<p><strong>The short answer.</strong> Stripe's 2.9% + 30c is the rate for one specific thing: a successful <em>online</em> payment on a <em>domestic</em> card. In-person payments through Stripe Terminal are a different base rate entirely &mdash; 2.7% + 5c. On top of the online rate, stripe.com/pricing lists +0.5% for manually entered cards, +1.5% for international cards, and +1% when currency conversion is required, which stack to as much as 5.4% + 30c on a keyed-in foreign card. And the per-transaction rate is only the Payments bill: Billing, Tax, Invoicing and Radar each add their own percentage or monthly fee on top.</p>
+
+<h2>Where the brief I was working from was incomplete</h2>
+<p>This article came out of an internal brief that described Stripe as charging "a percentage plus a fixed fee per successful card charge, with extra fees for international and currency conversion." Nothing in that sentence is false. It is still the wrong shape for the question, in three ways, and because this site's whole premise is correcting pricing claims rather than repeating them, here they are up front.</p>
+<ol>
+<li><strong>"2.9% + 30c" is a channel rate, not an account rate.</strong> The brief treats it as Stripe's price. The pricing page attaches it specifically to online domestic cards. Card-present transactions through Terminal are <strong>2.7% + 5c</strong> &mdash; lower percentage, dramatically lower fixed fee. If you sell in person at all, quoting yourself 2.9% + 30c overstates your cost by 25c a swipe.</li>
+<li><strong>The brief omits the surcharge that catches invoice-style businesses.</strong> Alongside international and conversion fees, the page lists <strong>+0.5% for manually entered cards</strong>. If you take card numbers over the phone and type them in, that is your rate, and almost no fee explainer mentions it.</li>
+<li><strong>There is no single "chargeback fee" to explain.</strong> The brief's outline asked for "chargeback and dispute fees" as one item. The pricing page has no line called chargeback fee at all. It lists a <strong>$15.00 dispute received fee</strong> and a separate <strong>$15.00 dispute countered fee</strong>, and then a third charge most articles miss entirely: <strong>Smart Disputes costs 30% of the disputed amount for each dispute you WIN</strong>, and nothing when you lose. That is an unusual enough fee structure that getting it wrong changes decisions, so it gets its own section below.</li>
+</ol>
+
+<h2>The base card rate, and everything that stacks on it</h2>
+<p>Straight from stripe.com/pricing on October 4, 2026, for businesses on standard (not custom) pricing:</p>
+<table>
+<thead><tr><th>Channel or surcharge</th><th>Rate</th><th>Applies when</th></tr></thead>
+<tbody>
+<tr><td>Online card payment, domestic</td><td><strong>2.9% + 30c</strong></td><td>Per successful transaction. The headline number.</td></tr>
+<tr><td>In-person card payment (Terminal)</td><td><strong>2.7% + 5c</strong></td><td>Per successful transaction, domestic cards.</td></tr>
+<tr><td>Manually entered card</td><td>+0.5%</td><td>You key the card number in yourself.</td></tr>
+<tr><td>International card</td><td>+1.5%</td><td>Card issued outside your country.</td></tr>
+<tr><td>Currency conversion</td><td>+1%</td><td>Charge currency differs from your settlement currency.</td></tr>
+<tr><td>Tap to Pay authorization</td><td>+$0.10</td><td>Contactless on a phone instead of a reader.</td></tr>
+<tr><td>Point-to-point encryption (optional)</td><td>+$0.05</td><td>Per authorization, for industries that require P2PE.</td></tr>
+</tbody>
+</table>
+<p>Those surcharges are additive, and that is the number worth internalising. A domestic online card is 2.9% + 30c. A foreign card is 4.4% + 30c. A foreign card in a foreign currency is 5.4% + 30c. A foreign card you typed in yourself, in a foreign currency, is <strong>5.9% + 30c</strong> &mdash; more than double the advertised rate, with no change to your account and no notification.</p>
+<p>Digital wallets do not change the card rate: Apple Pay, Google Pay, Amazon Pay, Cash App Pay, Click to Pay, Alipay and WeChat Pay all sit at 2.9% + 30c per successful charge on the local payment methods page. Amazon Pay and Cash App Pay additionally list a $15.00 fee for disputed payments.</p>
+
+<h3>The payment methods that are genuinely cheaper</h3>
+<p>If your buyers will use them, several non-card methods cost a fraction of the card rate. These are the ones with published US-facing numbers:</p>
+<table>
+<thead><tr><th>Method</th><th>Rate</th><th>Notable</th></tr></thead>
+<tbody>
+<tr><td>ACH Direct Debit</td><td><strong>0.8%, $5.00 cap</strong></td><td>Standard settlement. 1.2% for two-day settlement. $4.00 failed-payment fee, $15.00 disputed-payment fee.</td></tr>
+<tr><td>GBP bank transfers</td><td>0.5%, $5.00 cap</td><td>$0.50 per successful refund.</td></tr>
+<tr><td>Bacs Direct Debit (UK)</td><td>1% + 30c, $6.00 cap</td><td>$4.00 failed payment, $0.50 per refund.</td></tr>
+<tr><td>iDEAL / Wero (NL)</td><td>$0.80 flat</td><td>No percentage component at all.</td></tr>
+<tr><td>Bancontact (BE)</td><td>1.4% + 30c</td><td>&mdash;</td></tr>
+<tr><td>Pix and UPI via Link</td><td>1.8% + 30c</td><td>&mdash;</td></tr>
+<tr><td>Instant bank payments via Link</td><td>2.6% + 30c</td><td>Card-speed confirmation, below card cost.</td></tr>
+<tr><td>Stablecoins</td><td>1.5% of the USD amount</td><td>Conversion to fiat, AML screening and gas sponsorship included.</td></tr>
+<tr><td>Klarna (buy now, pay later)</td><td><strong>5.99% + 30c</strong></td><td>Roughly double the card rate.</td></tr>
+</tbody>
+</table>
+<p>The ACH cap is the one worth staring at. At 0.8% with a <strong>$5.00 ceiling</strong>, a $2,000 ACH invoice costs $5.00. The same $2,000 on a domestic card costs $58.30. If you invoice businesses for four-figure amounts and you are routing them through a card checkout out of habit, that gap is the single largest fee saving available to you on this entire page, and it requires no negotiation.</p>
+
+<h2>What the effective rate really is at your price point</h2>
+<p>The 30c is fixed, so the percentage you actually pay is a curve, not a number. This is plain arithmetic on the published rate &mdash; 2.9% of the sale plus 30c &mdash; not an estimate:</p>
+<table>
+<thead><tr><th>Sale price</th><th>Stripe fee</th><th>Effective rate</th><th>You net</th></tr></thead>
+<tbody>
+<tr><td>$3</td><td>$0.39</td><td><strong>12.90%</strong></td><td>$2.61</td></tr>
+<tr><td>$5</td><td>$0.45</td><td>8.90%</td><td>$4.55</td></tr>
+<tr><td>$10</td><td>$0.59</td><td>5.90%</td><td>$9.41</td></tr>
+<tr><td>$20</td><td>$0.88</td><td>4.40%</td><td>$19.12</td></tr>
+<tr><td>$25</td><td>$1.03</td><td>4.10%</td><td>$23.98</td></tr>
+<tr><td>$50</td><td>$1.75</td><td>3.50%</td><td>$48.25</td></tr>
+<tr><td>$100</td><td>$3.20</td><td>3.20%</td><td>$96.80</td></tr>
+<tr><td>$250</td><td>$7.55</td><td>3.02%</td><td>$242.45</td></tr>
+<tr><td>$1,000</td><td>$29.30</td><td>2.93%</td><td>$970.70</td></tr>
+</tbody>
+</table>
+<p>Two practical consequences. First, <strong>cheap digital products are brutally taxed by the fixed fee</strong>: a $3 template loses 12.9% to processing, and the "2.9%" you budgeted was off by a factor of four. Second, <strong>bundling beats itemising</strong>. Three separate $10 checkouts cost $1.77 in fees; one $30 checkout costs $1.17. Same revenue, 34% less processing cost, purely from checkout structure.</p>
+<p>And if you are selling low-ticket digital products, note PayPal's published alternative: its US merchant fees page, last updated October 1 2026, lists a <strong>Micropayments rate of 4.99% + a fixed fee</strong> ($0.09 for USD QR, with the standard USD commercial fixed fee at $0.49). For very small transactions a higher percentage with a smaller fixed fee can win. I am not going to tell you it does in your case without your numbers; I am telling you the lever exists and that most fee articles never mention it.</p>
+
+<h2>Disputes: three fees, and one that charges you for winning</h2>
+<p>This is where the common explainers are not just incomplete but actively misleading. stripe.com/pricing lists these separately:</p>
+<ul>
+<li><strong>Dispute received fee: $15.00</strong> &mdash; "for each dispute you receive." Unconditional. You pay this whether or not you contest it, whether or not you win. The page notes network fees also apply in rare cases.</li>
+<li><strong>Dispute countered fee: $15.00</strong> &mdash; "for each dispute you respond to manually." Stripe's own wording: "You get this fee back for won disputes. You don't get this fee back for lost disputes." So contesting and losing costs $30 in fees on top of the reversed sale.</li>
+<li><strong>Smart Disputes fee: 30% of the disputed amount for each dispute you WIN.</strong> There is no Smart Disputes fee for lost disputes, and the $15 received fee still applies regardless.</li>
+</ul>
+<p>Read that third one twice, because its incentive runs backwards from every other fee on the page. If Stripe's AI assembles your evidence and <em>wins</em> you a $400 dispute, that win costs $120 in Smart Disputes fees plus the $15 received fee, netting you $265 of the $400. If it loses, you pay only the $15 and you are out the $400. Winning is still better than losing &mdash; $265 beats -$15 &mdash; but the margin between them is far narrower than "we got your money back" implies, and on low-value disputes you should do the arithmetic before enabling it.</p>
+<p>Dispute <em>prevention</em> is priced separately again. Deflection lookups are included, but resolutions are not: <strong>$15.00 per Visa resolution</strong>, $15.00 per Visa Compelling Evidence 3.0 block, and <strong>$29.00 per Mastercard resolution</strong>.</p>
+
+<h3>The threshold nobody quotes, which Stripe publishes plainly</h3>
+<p>docs.stripe.com/disputes/measuring states that "the credit card processing industry standard recognizes dispute activity above 0.75% as excessive," and that a sudden spike or steep upward trend can land you in a card-network monitoring program <em>before</em> you hit 0.75%. The same page distinguishes two metrics people conflate: <strong>dispute activity</strong> counts disputes by dispute date over successful payments, and is what the networks' monitoring programs use; <strong>dispute rate</strong> counts by charge date and is the better read on which sales actually went bad.</p>
+<p>At 400 sales a month, 0.75% is <strong>three disputes</strong>. That is a smaller buffer than most solo sellers assume, and the docs add two facts that make it tighter: all disputes count toward the rate whether won or lost, and cardholders can dispute a charge up to 120 days after payment (sometimes later), so your recent-month figures are not final.</p>
+<p>Here is the cost of one lost dispute on a $50 product, in whole dollars: $50 reversed, $15 received fee, and the original $1.75 processing fee is not returned &mdash; <strong>$66.75 gone</strong>. At $48.25 net per clean $50 sale, it takes roughly one and a half clean sales to get back to zero. One bad buyer erases two good ones.</p>
+
+<h2>The fees that are not on the "2.9% + 30c" line</h2>
+<p>Stripe's FAQ says it "does not charge setup fees, monthly fees, or any other hidden fees like closure fees" for standard pricing, and for Payments alone that is true. The moment you add the products a real store needs, there is monthly and percentage pricing, all read off the same page:</p>
+<table>
+<thead><tr><th>Product</th><th>Pay-as-you-go</th><th>Subscription</th></tr></thead>
+<tbody>
+<tr><td>Billing (subscriptions)</td><td><strong>0.7% of Billing volume</strong> (incl. transactions processed off Stripe; excludes one-off invoices)</td><td>From <strong>$620.00/mo</strong>, one-year contract</td></tr>
+<tr><td>Stripe Tax</td><td><strong>0.5%</strong> per transaction where registered (no-code); <strong>$0.50</strong> per transaction (API, incl. 10 calculation calls, 5c each above)</td><td>From <strong>$90.00/mo</strong>, one-year contract</td></tr>
+<tr><td>Invoicing</td><td><strong>0.4%</strong> per paid invoice</td><td>See stripe.com/invoicing/pricing</td></tr>
+<tr><td>Radar (fraud)</td><td>From <strong>$0.05</strong> per screened transaction</td><td>From <strong>$10.00/mo</strong>, cancel any time</td></tr>
+<tr><td>Sigma (SQL reporting)</td><td>&mdash;</td><td>From <strong>$190.00/mo</strong>, one-year contract</td></tr>
+<tr><td>Identity</td><td><strong>$1.50</strong> per verification; <strong>$0.50</strong> per lookup</td><td>&mdash;</td></tr>
+<tr><td>Instant Payouts</td><td><strong>1.5%</strong> of volume, minimum 50c</td><td>Standard payout schedule is free</td></tr>
+<tr><td>Instant currency conversion</td><td>From <strong>0.5%</strong> of the converted amount</td><td>&mdash;</td></tr>
+<tr><td>Custom domain on Checkout / Payment Links</td><td>&mdash;</td><td><strong>$10.00/mo</strong></td></tr>
+<tr><td>Post-payment invoice on Checkout / Payment Links</td><td><strong>0.4%</strong> of transaction total, <strong>$2.00 cap</strong> per invoice</td><td>&mdash;</td></tr>
+<tr><td>Managed Payments (merchant of record)</td><td><strong>3.5%</strong> per transaction <em>in addition to</em> Payments fees</td><td>&mdash;</td></tr>
+</tbody>
+</table>
+<p>Stack the common SaaS combination and the real rate stops looking like 2.9%. A $50 monthly subscription charged on a domestic card, with Billing pay-as-you-go and Stripe Tax no-code, is 2.9% + 30c (Payments) plus 0.7% (Billing) plus 0.5% (Tax) = <strong>4.1% + 30c, which is $2.35 on $50 &mdash; a 4.7% effective rate.</strong> Still competitive. Just not the number on the homepage.</p>
+<p>Three things on this page are genuinely included at no extra charge for standard pricing, and they are worth knowing because competitors bill for them: <strong>3D Secure authentication</strong>, the <strong>Authorization Boost</strong> optimisations (Adaptive Acceptance, card account updater, network tokens), and <strong>Adaptive Pricing</strong> local-currency presentment. On Adaptive Pricing, note that your customer is shown a conversion fee "starting at 2%" &mdash; the cost moves to the buyer rather than disappearing.</p>
+
+<h2>Stripe vs the merchant-of-record platforms</h2>
+<p>The honest comparison is not rate-against-rate, because these products do different amounts of work. With raw Stripe you are the merchant of record: sales tax, VAT and GST registration and remittance are your legal problem. With Gumroad, Lemon Squeezy or Stripe's own Managed Payments, the platform takes that liability. All figures verified October 4, 2026 from each vendor's own pricing page:</p>
+<table>
+<thead><tr><th>Route</th><th>Published fee</th><th>Fee on a $50 digital sale</th><th>Merchant of record</th></tr></thead>
+<tbody>
+<tr><td><strong>Stripe standard</strong></td><td>2.9% + 30c</td><td><strong>$1.75</strong> (3.50%)</td><td>You</td></tr>
+<tr><td>PayPal Checkout (US)</td><td>3.49% + $0.49</td><td>$2.24 (4.47%)</td><td>You</td></tr>
+<tr><td>Lemon Squeezy</td><td>5% + 50c</td><td>$3.00 (6.00%)</td><td>Lemon Squeezy</td></tr>
+<tr><td>Stripe Managed Payments</td><td>3.5% <em>plus</em> Payments fees</td><td>$3.50 (7.00%)</td><td>Stripe</td></tr>
+<tr><td>Gumroad, direct link</td><td>10% + $0.50</td><td>$5.50 (11.00%)</td><td>Gumroad</td></tr>
+<tr><td>Gumroad, via Discover</td><td>30%</td><td>$15.00 (30.00%)</td><td>Gumroad</td></tr>
+</tbody>
+</table>
+<p>A few notes the table cannot hold. PayPal's US rates page (last updated October 1, 2026) lists 3.49% + a fixed fee for PayPal Checkout, Guest Checkout and Pay with Venmo, 2.99% + fixed fee for standard credit and debit card payments, 4.99% + fixed fee for Pay Later, a 1.50% additional fee on international commercial transactions, and a USD fixed fee of $0.49 &mdash; plus a <strong>$20.00 USD chargeback fee</strong>, noticeably above Stripe's $15. Gumroad has been merchant of record since January 1, 2025. Lemon Squeezy's page now carries a "Lemon Squeezy + Stripe Managed Payments" banner and a Stripe company badge, and its footer reads "Sold through Link, LLC f/k/a Lemon Squeezy LLC" &mdash; so the independent-alternative framing you will find in older articles no longer describes the corporate reality.</p>
+<p>The decision is not "which is cheapest." It is whether 2.5 to 8 points of margin is a fair price for never registering for VAT. For a US-only seller doing modest volume, raw Stripe plus your own bookkeeping usually wins. The moment you sell to the EU at volume, the compliance you are offloading is worth real money, and a merchant of record stops looking expensive.</p>
+
+<h3>Where "0% transaction fees" stops being the whole story</h3>
+<p>Several all-in-one platforms this site covers advertise 0% transaction fees, and the claim is true but narrower than it reads. <a href="https://systeme.io/?sa=sa0083765055fd9a7e779da3b58a3a8caed2914baa" data-aff="[AFFILIATE_LINK:systeme]" rel="sponsored nofollow">Systeme.io</a> genuinely takes 0% of your sales on every plan including the free one &mdash; that is 0% <em>on top of</em> your payment processor, not instead of it. You still connect Stripe or PayPal, and Stripe still takes 2.9% + 30c on every order. What you are being promised is the absence of a platform cut like Gumroad's 10% or Podia's 5%, which is a real and meaningful saving. It is not free payments, and any article implying otherwise is misreading the pricing page. Same logic applies in reverse: when a course platform quotes you a 5% transaction fee, that is 5% <em>plus</em> Stripe's 2.9% + 30c, so your true cost on a $50 sale is $4.25, not $2.50.</p>
+<p>If you want the full plan-by-plan breakdown of that model, I went through it in <a href="systeme-io-pricing-plans-explained-2026.html">Systeme.io pricing plans explained</a>, and the step-by-step checkout build in <a href="systeme-io-sell-digital-products-setup.html">selling digital products on Systeme.io</a>.</p>
+
+<h2>What I could not verify, and will not guess</h2>
+<p>This article is a page-reading exercise plus arithmetic. It is not a report on my own processing history, and the gaps matter more than the confidence:</p>
+<ul>
+<li><strong>Custom and IC+ pricing.</strong> stripe.com/pricing offers "IC+ pricing, volume discounts, multi-product discounts, country-specific rates" to large-volume businesses and publishes <em>no</em> rates for any of them. Eligibility "varies by market." Anyone quoting you a specific Stripe volume discount is making it up or is under NDA. No number appears above.</li>
+<li><strong>Authorization and acceptance rates.</strong> Stripe markets Link as "3x faster" and cites a "14% average returning user conversion increase," and Forrester's study as "more than 3x return on investment." Those are vendor marketing figures from a commissioned study, not independent measurements, so I have not used them as evidence of anything. No conversion-lift claim appears above.</li>
+<li><strong>Dispute win rates, with or without Smart Disputes.</strong> Neither the pricing page nor the dispute docs publish one, and I have not run disputes to measure it. The 30%-of-a-win fee is quoted; its hit rate is not.</li>
+<li><strong>Radar for Fraud Teams.</strong> Footnote 1 on the pricing page says it is "priced separately" and gives no figure on that page. Omitted rather than guessed.</li>
+<li><strong>Non-US rates.</strong> Everything above is the US-facing page. Stripe's rates are country-specific and I only read one country's page, so treat these as US figures only.</li>
+<li><strong>My own numbers.</strong> I have not processed meaningful volume through Stripe, so there is no effective-rate-from-my-dashboard figure in this article and no claim that there is. Every percentage above is either printed on a vendor page or derived from one by multiplication you can redo in your head.</li>
+</ul>
+
+<h2>Verdict</h2>
+<p>Stripe's pricing is genuinely honest &mdash; it is all published, there are no setup or closure fees, and the surcharges are listed on the same page as the headline rate rather than buried in a PDF. It is just not <em>simple</em>, and "2.9% + 30c" is the least useful way to think about it. The three things that will actually change your bill, in order of size: <strong>route large invoices to ACH</strong> (0.8% capped at $5.00 instead of 2.9% uncapped), <strong>raise your average order value</strong> so the 30c stops dominating, and <strong>treat disputes as a margin problem rather than a customer-service problem</strong>, because 0.75% dispute activity is the industry line and one lost $50 dispute eats two clean sales.</p>
+<p>If you are picking where to sell rather than how to process, the <a href="best-ai-automation-tools.html">best AI automation tools</a> hub maps the rest of the stack, <a href="how-to-track-affiliate-link-clicks-and-conversions.html">tracking affiliate clicks and conversions</a> covers the attribution side of the same money, and <a href="best-free-funnel-builder-2026.html">free funnel builders</a> is where to look if the checkout itself is the thing you have not built yet. The <a href="free-n8n-templates.html">free n8n templates</a> include the webhook patterns for reacting to Stripe events without paying for another SaaS to do it.</p>
+
+<h2>FAQ</h2>
+<h3>Is Stripe really 2.9% + 30 cents?</h3>
+<p>For one specific case: a successful ONLINE payment with a domestic card. stripe.com/pricing states 2.9% + 30c "per successful transaction for domestic cards" under online payments. In-person payments through Stripe Terminal are a different base rate -- 2.7% + 5c. On top of the online rate the same page lists +0.5% for manually entered cards, +1.5% for international cards, and +1% if currency conversion is required. So 2.9% + 30c is a floor for one channel, not a ceiling for your account.</p>
+<h3>What is Stripe's chargeback fee in 2026?</h3>
+<p>There is no line item called "chargeback fee" on stripe.com/pricing. The page lists a $15.00 dispute received fee "for each dispute you receive" and a separate $15.00 dispute countered fee "for each dispute you respond to manually" -- which you get back if you win and do not get back if you lose. Stripe's AI-assisted Smart Disputes carries a third fee: 30% of the disputed amount, charged for each dispute you WIN, with no Smart Disputes fee on losses. The received fee still applies in all cases.</p>
+<h3>Does Stripe have monthly fees?</h3>
+<p>Not for Payments. The pricing page's FAQ says Stripe "does not charge setup fees, monthly fees, or any other hidden fees like closure fees" for businesses on standard pricing. But the products most stores bolt on do have monthly or percentage pricing: Billing is 0.7% of billing volume pay-as-you-go or from $620/mo on a one-year contract, Stripe Tax is 0.5% per transaction no-code or from $90/mo on contract, Invoicing is 0.4% per paid invoice, Radar is $0.05 per screened transaction or from $10/mo, Sigma is from $190/mo. A custom domain on Checkout or Payment Links is $10/mo.</p>
+<h3>What is the effective Stripe fee on a small sale?</h3>
+<p>The 30c fixed component is what hurts at low ticket prices, and it is arithmetic you can do yourself. At a $3 sale, 2.9% + 30c is $0.39, which is 12.9% of the sale. At $10 it is $0.59, or 5.9%. At $50, $1.75 or 3.5%. At $100, $3.20 or 3.2%. At $1,000, $29.30 or 2.93%. The percentage you actually pay only approaches 2.9% as the order value grows, so bundling three $10 products into one $30 checkout is cheaper than three separate $10 checkouts.</p>
+<h3>Is Stripe cheaper than Gumroad or Lemon Squeezy?</h3>
+<p>On headline rate, yes, but they are not the same product. Verified October 4 2026: Stripe standard is 2.9% + 30c and you remain the merchant of record, so sales tax and VAT compliance is your problem. Gumroad is 10% + $0.50 on direct sales and 30% through its Discover marketplace, and has been merchant of record since January 1 2025. Lemon Squeezy is 5% + 50c as merchant of record. Stripe's own merchant-of-record product, Managed Payments, is 3.5% per transaction ON TOP of Payments fees, so about 6.4% + 30c -- which on a $50 sale is $3.50 versus $1.75 for raw Stripe.</p>
+<h3>Does Stripe refund its fee when I refund a customer?</h3>
+<p>No. The pricing FAQ is explicit: for standard pricing there are no fees for issuing refunds on card payments, but "the payment processing, Connect and currency conversion fees from the original transaction are not returned." So a refunded $50 card sale costs you the $1.75 you already paid. Bank-transfer refunds can carry their own fee -- the local payment methods page lists $0.50 per successful refund on Bacs Direct Debit and on GBP bank transfers.</p>
+<h3>How many disputes is too many on Stripe?</h3>
+<p>Stripe's docs give a number, and it is lower than most people expect. docs.stripe.com/disputes/measuring says "the credit card processing industry standard recognizes dispute activity above 0.75% as excessive," and that a sudden spike can trigger a card-network monitoring program before you even reach 0.75%. At 400 sales a month, 0.75% is three disputes. The docs also note all disputes count toward the rate whether you win or lose, and that cardholders can dispute a charge up to 120 days after payment.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest &mdash; AI automation tools, tested by a guy who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
