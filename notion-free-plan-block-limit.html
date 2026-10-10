@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Notion Free Plan 2026: The 1,000-Block Limit Its Own Pricing Page Doesn&rsquo;t Mention</title>
+<link rel="canonical" href="https://mrjcarrazco.github.io/stackhonest/notion-free-plan-block-limit.html">
+<meta name="description" content="Notion&#39;s current pricing page says a free workspace is &quot;limited for 2+ members&quot; but prints no number -- the actual 1,000-block cap lives only in Notion&#39;s help center, confirmed against three of its own docs. Plus: a Sept 2026 API change that enforces the cap against n8n automations, and why Notion&#39;s own affiliate page says it isn&#39;t accepting new affiliates. Verified Oct 9 2026.">
+<link rel="stylesheet" href="style.css">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "What is Notion's free plan block limit?", "acceptedAnswer": {"@type": "Answer", "text": "A single-member Free workspace has unlimited blocks, confirmed on Notion's own help center. The moment a second member joins, the whole workspace is capped at 1,000 lifetime blocks total, not per person. Deleting blocks does not free up capacity -- Notion's own API reference states this explicitly: 'Deleting blocks does not restore capacity.' A 3-day grace period applies once you hit the cap before restrictions begin."}}, {"@type": "Question", "name": "Why doesn't Notion's pricing page show the 1,000 number?", "acceptedAnswer": {"@type": "Answer", "text": "Notion's live pricing-page comparison table lists the Free row for Pages and blocks as 'Unlimited for individuals, limited for 2+ members' -- no number. The actual 1,000-block figure only appears on three separate Notion help-center pages, all of which agree with each other. The marketing page describes the shape of the limit; the support docs are where the number actually lives."}}, {"@type": "Question", "name": "Does Notion's free-plan block limit affect n8n or Zapier automations?", "acceptedAnswer": {"@type": "Answer", "text": "As of a September 2026 change documented in Notion's own API changelog and reference docs, the 1,000-block limit is now enforced against the REST API for internal integrations and workspace-restricted OAuth connections -- which is how n8n's default Notion credential connects. Zapier's documented setup uses a public OAuth app with no token field, which sits outside the limit by Notion's own description of scope. Make has two connection options, only one of which is affected."}}, {"@type": "Question", "name": "Is Notion's own pricing page internally consistent on guest limits?", "acceptedAnswer": {"@type": "Answer", "text": "No. Two live Notion pricing-page mirrors read during this research disagree: two state Plus, Business and Enterprise all get unlimited guests, while a third states Plus gets 100 guests, Business 250, and Enterprise starting at 250. Free is 10 guests on every version. This article reports both readings rather than picking one."}}, {"@type": "Question", "name": "Can I still join the Notion affiliate program?", "acceptedAnswer": {"@type": "Answer", "text": "Not currently. Notion's own official affiliate page displays a notice that the program is not accepting new affiliates, as read in this research. Three independent third-party affiliate directories corroborate the closure and also flag that the widely repeated 50% recurring commission figure is wrong -- Notion's own page states up to $50 per activated signup plus 20% of year-one revenue, not a recurring rate."}}]}
+</script>
+<meta property="og:type" content="article">
+<meta property="og:title" content="Notion Free Plan 2026: The 1,000-Block Limit Its Own Pricing Page Doesn&rsquo;t Mention">
+<meta property="og:description" content="Notion&#39;s current pricing page says a free workspace is &quot;limited for 2+ members&quot; but prints no number -- the actual 1,000-block cap lives only in Notion&#39;s help center. Plus: a Sept 2026 API change affecting n8n automations, and why Notion&#39;s own affiliate page says it isn&#39;t accepting new affiliates. Verified Oct 9 2026.">
+<meta property="og:url" content="https://mrjcarrazco.github.io/stackhonest/notion-free-plan-block-limit.html">
+<meta property="og:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:site_name" content="StackHonest">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Notion Free Plan 2026: The 1,000-Block Limit Its Own Pricing Page Doesn&rsquo;t Mention">
+<meta name="twitter:description" content="Notion&#39;s current pricing page says a free workspace is &quot;limited for 2+ members&quot; but prints no number. Verified Oct 9 2026.">
+<meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
+<script type="application/ld+json">
+{"@context": "https://schema.org", "@type": "Article", "headline": "Notion Free Plan 2026: The 1,000-Block Limit Its Own Pricing Page Doesn't Mention", "description": "Notion's current pricing page says a free workspace is limited for 2+ members but prints no number -- the actual 1,000-block cap lives only in Notion's help center. Plus a Sept 2026 API change affecting n8n automations, and why Notion's own affiliate page isn't accepting new affiliates. Verified Oct 9 2026.", "url": "https://mrjcarrazco.github.io/stackhonest/notion-free-plan-block-limit.html", "image": "https://mrjcarrazco.github.io/stackhonest/og-banner.png", "datePublished": "2026-10-09", "dateModified": "2026-10-09", "mainEntityOfPage": {"@type": "WebPage", "@id": "https://mrjcarrazco.github.io/stackhonest/notion-free-plan-block-limit.html"}, "author": {"@type": "Organization", "name": "StackHonest", "url": "https://mrjcarrazco.github.io/stackhonest/about.html"}, "publisher": {"@type": "Organization", "name": "StackHonest", "url": "https://mrjcarrazco.github.io/stackhonest/", "logo": {"@type": "ImageObject", "url": "https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+</script>
+</head>
+<body>
+<header><div class="wrap">
+<a class="logo" href="index.html">Stack<span>Honest</span></a>
+<nav>
+<a href="best-ai-automation-tools.html">Best AI Automation Tools</a>
+<a href="n8n-vs-make.html">n8n vs Make</a>
+<a href="n8n-vs-zapier.html">n8n vs Zapier</a>
+<a href="make-vs-zapier-for-small-business.html">Make vs Zapier</a>
+<a href="systeme-io-vs-clickfunnels-free.html">Systeme.io vs ClickFunnels</a>
+<a href="systeme-io-vs-kartra-pricing.html">Systeme.io vs Kartra</a>
+<a href="systeme-io-vs-kajabi-pricing.html">Systeme.io vs Kajabi</a>
+<a href="systeme-io-vs-gohighlevel-pricing.html">Systeme.io vs GoHighLevel</a>
+<a href="how-to-build-a-saas-landing-page-with-systeme-io.html">Build a SaaS Landing Page</a>
+<a href="best-free-zapier-alternatives.html">Zapier Alternatives</a>
+<a href="elevenlabs-vs-murf.html">ElevenLabs vs Murf</a>
+<a href="elevenlabs-vs-play-ht-comparison.html">ElevenLabs vs Play.ht</a>
+<a href="elevenlabs-review-free-tier-limits.html">ElevenLabs Review</a>
+<a href="koala-ai-review.html">Koala AI Review</a>
+<a href="jasper-vs-writesonic-2026.html">Jasper vs Writesonic</a>
+<a href="koala-ai-vs-writesonic-for-seo.html">Koala vs Writesonic (SEO)</a>
+<a href="best-ai-writer-for-niche-sites.html">Best AI Writer (Niche Sites)</a>
+<a href="best-email-marketing-for-solopreneurs-free.html">Free Email Marketing</a>
+<a href="best-ai-tools-for-one-person-business.html">One-Person AI Stack</a>
+<a href="best-free-funnel-builder-2026.html">Free Funnel Builders</a>
+<a href="surfer-seo-vs-neuronwriter.html">Surfer vs NeuronWriter</a>
+<a href="frase-vs-surfer-seo-comparison.html">Frase vs Surfer SEO</a>
+<a href="claude-vs-chatgpt-for-automation-workflows.html">Claude vs ChatGPT</a>
+<a href="synthesia-vs-heygen-for-training-videos.html">Synthesia vs HeyGen</a>
+<a href="pictory-vs-invideo-for-youtube.html">Pictory vs InVideo</a>
+
+<a href="pictory-review-faceless-youtube.html">Pictory Review</a>
+<a href="kit-vs-mailerlite-for-creators.html">Kit vs MailerLite</a>
+<a href="getresponse-vs-kit-email-automation.html">GetResponse vs Kit</a>
+<a href="descript-vs-capcut-for-podcast-editing.html">Descript vs CapCut</a>
+<a href="n8n-cloud-vs-self-hosted-cost.html">n8n Cloud vs Self-Hosted</a>
+<a href="best-automation-tool-for-lead-generation.html">Lead-Gen Automation</a>
+<a href="best-ai-video-generator-without-face.html">Faceless AI Video</a>
+<a href="best-n8n-hosting-options.html">n8n Hosting Options</a>
+<a href="best-ai-seo-tools-for-beginners.html">AI SEO Tools for Beginners</a>
+<a href="best-text-to-speech-for-audiobooks-2026.html">TTS for Audiobooks</a>
+<a href="best-make-com-alternatives-self-hosted.html">Self-Hosted Make Alternatives</a>
+<a href="best-ai-tools-for-local-service-businesses.html">AI for Local Service Biz</a>
+<a href="best-automation-stack-for-content-creators.html">Creator Automation Stack</a>
+<a href="free-n8n-templates.html">Free Templates</a>
+<a href="n8n-review-for-beginners-2026.html">n8n Review for Beginners</a>
+<a href="writesonic-review-2026-worth-it.html">Writesonic Review</a>
+<a href="is-jasper-ai-worth-it-2026.html">Is Jasper Worth It?</a>
+<a href="about.html">About</a>
+<a href="neuronwriter-review-lifetime-deal.html">NeuronWriter Review</a>
+<a href="getresponse-free-plan-review.html">GetResponse Free Plan</a>
+<a href="hostinger-vps-for-n8n-review.html">Hostinger VPS for n8n</a>
+<a href="jasper-alternatives-cheaper.html">Cheaper Jasper Alternatives</a>
+<a href="synthesia-alternatives-free.html">Synthesia Alternatives (Free)</a>
+<a href="how-to-automate-lead-generation-with-n8n.html">Automate Lead Gen with n8n</a>
+
+<a href="how-to-self-host-n8n-cheap.html">Self-Host n8n Cheap</a>
+<a href="missed-call-text-back-automation-setup.html">Missed Call Text Back</a>
+<a href="n8n-error-handling-and-retry-workflows.html">n8n Error Handling &amp; Retries</a>
+<a href="systeme-io-affiliate-program-setup-guide.html">Systeme.io Affiliate Setup Guide</a>
+<a href="systeme-io-vs-mailchimp.html">Systeme.io vs Mailchimp</a>
+<a href="systeme-io-vs-leadpages.html">Systeme.io vs Leadpages</a>
+<a href="systeme-io-evergreen-webinar-setup.html">Systeme.io Evergreen Webinars</a>
+<a href="systeme-io-vs-teachable.html">Systeme.io vs Teachable</a>
+<a href="systeme-io-vs-podia.html">Systeme.io vs Podia</a>
+<a href="systeme-io-vs-thinkific-pricing.html">Systeme.io vs Thinkific</a>
+<a href="systeme-io-vs-builderall.html">Systeme.io vs Builderall</a>
+<a href="systeme-io-vs-kit-for-creators.html">Systeme.io vs Kit</a>
+<a href="zapier-alternatives-free-unlimited.html">Zapier Alternatives (Free/Unlimited)</a>
+<a href="elevenlabs-alternatives-cheaper.html">Cheaper ElevenLabs Alternatives</a>
+<a href="koala-writer-review.html">Koala Writer Review</a>
+<a href="n8n-ai-agent-templates-free.html">Free n8n AI Agent Templates</a>
+<a href="elevenlabs-voice-cloning-cost-breakdown.html">Voice Cloning Cost Breakdown</a>
+<a href="systeme-io-vs-hubspot.html">Systeme.io vs HubSpot</a>
+<a href="systeme-io-sell-digital-products-setup.html">Sell Digital Products on Systeme.io</a>
+<a href="neuronwriter-vs-koala-ai-for-affiliate-sites.html">NeuronWriter vs Koala AI</a>
+<a href="systeme-io-vs-activecampaign.html">Systeme.io vs ActiveCampaign</a>
+<a href="systeme-io-vs-wix.html">Systeme.io vs Wix</a>
+<a href="getresponse-ai-email-generator-review.html">GetResponse AI Email Generator</a>
+<a href="systeme-io-vs-squarespace.html">Systeme.io vs Squarespace</a>
+<a href="best-ai-automation-for-dropshipping.html">Dropshipping Automation</a>
+
+<a href="best-ai-tools-for-newsletter-automation.html">Newsletter Automation Tools</a>
+<a href="best-ai-tools-for-ecommerce-product-descriptions.html">E-Commerce Product Descriptions</a>
+<a href="best-ai-tools-for-podcast-production.html">AI Podcast Production</a>
+<a href="how-to-track-affiliate-link-clicks-and-conversions.html">Track Affiliate Clicks</a>
+<a href="systeme-io-pricing-plans-explained-2026.html">Systeme.io Pricing Explained</a>
+<a href="descript-transcription-pricing-limits-2026.html">Descript Transcription Limits</a>
+<a href="calendly-free-plan-event-type-limit.html">Calendly Free Plan Limits</a>
+<a href="stripe-fees-explained-2026.html">Stripe Fees Explained</a>
+<a href="wave-free-invoicing-review-2026.html">Wave Free Invoicing</a>
+<a href="vultr-cheapest-vps-price-per-month.html">Vultr Cheapest VPS</a>
+<a href="jotform-free-plan-limits-2026.html">Jotform Free Plan Limits</a>
+<a href="zoho-crm-free-plan-limits-2026.html">Zoho CRM Free Plan Limits</a>
+<a href="hellosign-free-monthly-document-limit.html">HelloSign Free Plan Limits</a>
+<a href="bitwarden-free-unlimited-passwords-devices.html">Bitwarden Free Plan</a>
+<a href="best-ai-voice-generator-for-youtube-shorts.html">AI Voice for YouTube Shorts</a>
+<a href="pcloud-free-storage-10gb-limit.html">pCloud Free Storage</a>
+<a href="clickup-free-plan-unlimited-users-storage.html">ClickUp Free Plan Limits</a>
+<a href="clockify-free-unlimited-users-projects.html">Clockify Free Plan Limits</a>
+<a href="plausible-pricing-10k-pageviews-explained.html">Plausible Pricing Explained</a>
+<a href="notion-free-plan-block-limit.html">Notion Free Plan Block Limit</a>
+</nav>
+</div></header>
+<main><div class="wrap">
+
+<h1>Notion Free Plan in 2026: The 1,000-Block Limit Its Own Pricing Page Doesn't Mention</h1>
+<p class="meta">Last updated October 9, 2026 &middot; ~10 min read &middot; by StackHonest</p>
+<div class="disclosure"><strong>Disclosure:</strong> the Notion link marked below sits in an affiliate slot on this site, but <strong>no Notion affiliate code is live here yet</strong> &mdash; and as explained further down, Notion's own affiliate program currently isn't even accepting new applicants, so this link earns exactly $0 today and cannot earn more until that changes. Confluence and ClickUp have no affiliate relationship with this site at all; every link to them is a plain editorial citation to the page the numbers were read from. Nothing here is sponsored, no vendor saw this before it went live, and this site has collected no affiliate revenue to date.</div>
+
+<p><strong>Short answer:</strong> Notion's Free plan is genuinely unlimited in blocks &mdash; but only for a single-member workspace. The moment a second person joins, the whole workspace is capped at <strong>1,000 lifetime blocks</strong>, confirmed directly against three of Notion's help-center pages. What's strange is where that number lives: Notion's current live pricing page, read October 9, 2026, describes the Free row for pages &amp; blocks as <strong>&quot;Unlimited for individuals, limited for 2+ members&quot;</strong> &mdash; the word limited, no digit attached. The 1,000 figure never appears on the marketing page at all. It only shows up in the support documentation, three separate pages, all agreeing with each other and with a fourth independent source describing a September 2026 change that extended the same cap to the API.</p>
+
+<h2>What Notion's pricing page actually says, read directly</h2>
+<p>app.notion.com/pricing and notion.com/pricing (both live, both read the same day) list four tiers: <strong>Free $0</strong> per member/month, <strong>Plus $10</strong> per member/month, <strong>Business $20</strong> per member/month (marked &quot;Recommended&quot;), and <strong>Enterprise</strong> at custom pricing. The feature-comparison table's first content row, &quot;Pages &amp; blocks,&quot; reads straight across as: Free &mdash; &quot;Unlimited for individuals, limited for 2+ members&quot;; Plus, Business and Enterprise &mdash; all &quot;Unlimited.&quot; No cell in that row, on either live mirror checked, prints a number for what &quot;limited&quot; means.</p>
+<table>
+<thead><tr><th>Plan</th><th>Price</th><th>Pages &amp; blocks (as printed on the pricing page)</th></tr></thead>
+<tbody>
+<tr><td>Free</td><td>$0/member/mo</td><td>Unlimited for individuals, <strong>limited</strong> for 2+ members</td></tr>
+<tr><td>Plus</td><td>$10/member/mo</td><td>Unlimited</td></tr>
+<tr><td>Business</td><td>$20/member/mo (Recommended)</td><td>Unlimited</td></tr>
+<tr><td>Enterprise</td><td>Custom</td><td>Unlimited</td></tr>
+</tbody>
+</table>
+
+<h2>The real number, confirmed only in Notion's own help center</h2>
+<p>Three separate Notion help-center articles (Understanding block usage, Who's who in a workspace, and Downgrading your Notion plan) all state the same figure in nearly identical language: a Free workspace with <strong>one</strong> workspace owner gets unlimited blocks; a Free workspace with <strong>two or more</strong> workspace owners is capped at <strong>1,000 blocks total for the whole workspace</strong>, not per person. People added to a Free workspace can only join as owners (not plain &quot;members&quot; in the usual sense), so &quot;2+ workspace owners&quot; and &quot;2+ members&quot; describe the same population. Hitting the cap doesn't lock the workspace: existing content stays readable and editable, you just can't add new blocks until you upgrade or get back down to one person. Notion grants a <strong>three-day grace period</strong> after you cross 1,000 before restrictions actually start, and &mdash; stated explicitly in the help docs &mdash; <strong>deleting blocks does not restore capacity</strong>. Once a workspace has created 1,000 blocks, deleting ten of them does not give you ten back.</p>
+<table>
+<thead><tr><th>Workspace shape</th><th>Block limit</th></tr></thead>
+<tbody>
+<tr><td>Free, single member/owner</td><td>Unlimited</td></tr>
+<tr><td>Free, 2+ members/owners</td><td><strong>1,000 blocks, lifetime, workspace-wide</strong> (3-day grace period at the cap; deletions do not restore capacity)</td></tr>
+<tr><td>Plus / Business / Enterprise, any size</td><td>Unlimited</td></tr>
+</tbody>
+</table>
+<p>If you want unlimited blocks and don't want to pay, Notion's own documentation names the workaround directly: keep the workspace to one person and add everyone else as a <strong>guest</strong> instead of a member. Guests don't count toward the member-count trigger, though they're limited to 10 on Free (see below) and work &quot;in a more limited capacity&quot; than full members.</p>
+
+<h2>The September 2026 twist: the cap now reaches into the API, and it changes how n8n connects</h2>
+<p>This is new, and it's specific to anyone running Notion through automation rather than the app. Notion's own API changelog states that, starting September 1, 2026, <strong>&quot;Free workspace block limits now apply to the REST API&quot;</strong> for internal integrations and workspace-restricted OAuth connections &mdash; explicitly framed as enforcement of an existing limit, not a new one. A separate Notion API reference page on request limits, read during this research, describes the same change taking effect <strong>September 8, 2026</strong>. Notion's own two properties disagree with each other on the date by a week; this article reports both rather than picking one, since nothing about the underlying limit changes either way.</p>
+<p>What matters practically: the block limit used to be something a human hit by typing too much. Now it's something an automation can hit silently, mid-run, through the API &mdash; and which connection method you use determines whether you're exposed:</p>
+<table>
+<thead><tr><th>Platform</th><th>How it typically connects to Notion</th><th>Affected by the Free 1,000-block API limit?</th></tr></thead>
+<tbody>
+<tr><td>n8n</td><td>Default Notion credential's only field is an &quot;Internal Integration Secret&quot;</td><td><strong>Yes, by default</strong></td></tr>
+<tr><td>Make</td><td>Two documented options: &quot;Notion Internal connection&quot; (token-based) or &quot;Notion Public&quot; (OAuth app)</td><td>Only on the internal-token option</td></tr>
+<tr><td>Zapier</td><td>OAuth through Zapier's own public app; no field to paste a token into</td><td>No, per the letter of Notion's documented scope</td></tr>
+</tbody>
+</table>
+<p>Notion's reference doc spells out the boundary itself: the limit &quot;applies to internal connections and OAuth connections restricted to selected workspaces. It does not apply to personal access tokens or OAuth connections that can be installed in any workspace.&quot; A blocked write returns a 403 with a structured <code>additional_data.block_limit</code> field in the response body &mdash; worth building error-handling around if you're the kind of reader who already built the <a href="n8n-error-handling-and-retry-workflows.html">n8n error-handling and retry workflow</a> covered elsewhere on this site, since &quot;Notion free-tier block cap&quot; is exactly the kind of silent failure that workflow is built to catch.</p>
+
+<h2>Notion's own pricing page disagrees with itself on guest limits</h2>
+<p>A second, smaller contradiction turned up while reading three live Notion pricing-page mirrors side by side on the same day. app.notion.com/pricing and notion.com/pricing both state the external guest limit as: Free 10, Plus &quot;Unlimited guests,&quot; Business &quot;Unlimited guests,&quot; Enterprise &quot;Unlimited guests.&quot; But notion.so/pricing &mdash; also live the same day, same company, different URL &mdash; states Free 10, <strong>Plus 100</strong>, <strong>Business 250</strong>, Enterprise &quot;Starting at 250.&quot; That is not a rounding difference; it's &quot;unlimited&quot; against a specific number, on two pages of the same product. Neither is flagged on either page as outdated. This article reports both readings rather than guessing which mirror is stale.</p>
+
+<h2>Everything else on Free, read directly off the live pricing table</h2>
+<table>
+<thead><tr><th>Feature</th><th>Free</th><th>Plus ($10/mo)</th><th>Business ($20/mo)</th></tr></thead>
+<tbody>
+<tr><td>File uploads</td><td><strong>Up to 5 MB per file</strong></td><td>Unlimited</td><td>Unlimited</td></tr>
+<tr><td>Page history</td><td><strong>7 days</strong></td><td>30 days</td><td>90 days</td></tr>
+<tr><td>Guest limit</td><td><strong>10</strong></td><td>100 or Unlimited (page-dependent, see above)</td><td>250 or Unlimited (page-dependent, see above)</td></tr>
+<tr><td>Notion AI</td><td>Trial only</td><td>Trial only</td><td>Limited trial of Notion Agent / Meeting Notes</td></tr>
+<tr><td>Forms / sites</td><td>Basic forms, basic sites</td><td>Custom forms, custom sites</td><td>Custom forms, custom sites</td></tr>
+<tr><td>SSO / private teamspaces</td><td>No</td><td>No</td><td>Yes (SAML SSO, private teamspaces)</td></tr>
+</tbody>
+</table>
+<p>Worth flagging separately: Notion is now selling an &quot;AI Workers&quot; beta add-on across all paid tiers at <strong>$10 per 1,000 monthly Notion credits</strong>, &quot;free to try&quot; before billing kicks in &mdash; a usage-metered layer stacked on top of the flat per-seat price, not included in any of the numbers above.</p>
+
+<h2>How the real limit compares: Notion vs. ClickUp vs. Confluence</h2>
+<p>Three collaboration tools, three different ways of making &quot;free&quot; mean something different once a second person is in the room, all read from each vendor's own page:</p>
+<table>
+<thead><tr><th>Tool</th><th>Free member cap</th><th>What actually gets limited instead</th></tr></thead>
+<tbody>
+<tr><td>Notion</td><td>No cap on headcount</td><td><strong>Content</strong> &mdash; 1,000 lifetime blocks, but only once a 2nd member joins</td></tr>
+<tr><td><a href="clickup-free-plan-unlimited-users-storage.html">ClickUp</a></td><td>No cap &mdash; &quot;Unlimited Free Plan Members,&quot; confirmed in this site's own ClickUp review</td><td><strong>Storage</strong> &mdash; 60MB total per ClickUp's own pricing page (two third-party trackers claim 100MB instead, unresolved per that review)</td></tr>
+<tr><td>Confluence</td><td><strong>10 users</strong> &mdash; &quot;Free forever for 10 users,&quot; confirmed on atlassian.com/software/confluence/pricing</td><td><strong>Storage</strong> &mdash; 2GB file storage, plus only 3 active whiteboards per user and 10 automation rule runs/month</td></tr>
+</tbody>
+</table>
+<p>Confluence is the one of the three that caps the thing everyone expects a free plan to cap &mdash; headcount, plainly, at 10. Notion and ClickUp both advertise no headcount cap at all, and both bury their real ceiling in a different resource (blocks, storage) that a reader skimming the headline &quot;unlimited members&quot; claim would never think to check. Notion's version is the stranger of the two: the cap doesn't exist until a second person shows up, then it applies to content that was already there.</p>
+
+<h2>Monetization slot: why there is a Notion placeholder here with nothing live behind it</h2>
+<p>Notion has a real, previously well-paying affiliate program &mdash; up to $50 per activated signup plus 20% of year-one revenue on a net-new Plus or Business upgrade, 180-day last-click cookie, run on PartnerStack. That's a genuinely good rate by this site's standards. It's also, as of this research, <strong>closed</strong>. Notion's own official affiliate page, read directly at notion.com/affiliates, displays the notice: <strong>&quot;Program is currently not accepting new affiliates.&quot;</strong> Three independent third-party affiliate directories (openaffiliate.dev, getreditus.com, saasaffiliate.net) all corroborate the same closure as of their own 2026 checks, and two of them separately flag that the &quot;50% recurring&quot; commission figure that circulates elsewhere online does not match Notion's own published terms &mdash; the real structure is a one-time $50 bounty plus 20% of the first year, not an ongoing recurring percentage.</p>
+<p>So the <code>[AFFILIATE_LINK:notion]</code> placeholder on this page points at a plain notion.so URL today, earns nothing, and can't be converted into a real affiliate link even if traffic justified it &mdash; the application itself isn't open. It's logged as a &quot;watch for reopening&quot; program rather than an &quot;apply after traffic&quot; one, which is a different and more specific status than most placeholders on this site carry.</p>
+
+<h2>When the Free workspace actually works, and when it doesn't</h2>
+<ol>
+<li><strong>Solo use, any volume.</strong> One member, unlimited blocks, no credit card. This is the case the 1,000-block cap never touches, and it's most of what Notion was built for originally.</li>
+<li><strong>You're about to invite a second person.</strong> That's the exact trigger, not a gradual approach &mdash; the cap activates the moment workspace membership becomes 2+, whatever the existing block count already was.</li>
+<li><strong>You're close to 1,000 blocks with multiple members already.</strong> Check Settings &rarr; People for your owner count today, not after you hit the wall; the 3-day grace period is short, and deleting old content will not buy you room.</li>
+<li><strong>You automate Notion with n8n using the default credential.</strong> You are now inside the API-enforced version of the same 1,000-block cap if the workspace has 2+ members &mdash; worth checking before a write-heavy workflow fails mid-run with a 403.</li>
+<li><strong>You need true unlimited collaboration at $0.</strong> None of the three tools compared here give you that past a certain headcount or content volume. ClickUp's unlimited-member claim holds structurally but hits storage; Confluence caps users outright at 10; Notion's is the one that looks unlimited until exactly the moment it isn't.</li>
+</ol>
+
+<h2>What I could not verify, and will not guess</h2>
+<ul>
+<li><strong>Which guest-limit figure on Notion's own pricing pages is current.</strong> Two live mirrors say &quot;unlimited&quot; for Plus/Business/Enterprise guests; a third says 100/250/&quot;starting at 250.&quot; Both are quoted above; neither is picked as authoritative.</li>
+<li><strong>Whether the API enforcement date is September 1 or September 8, 2026.</strong> Notion's own changelog and its own reference docs disagree by a week; both are reported.</li>
+<li><strong>Any month-to-month pricing nuance beyond the flat per-member rates shown.</strong> The live pricing page presents Plus/Business as flat monthly-or-annual per-member rates with a yearly toggle claiming &quot;Save up to 20%&quot; &mdash; the exact annual dollar figures were not re-derived here.</li>
+<li><strong>Whether Notion's &quot;AI Workers&quot; beta credit cost ($10/1,000 credits) is representative of real-world usage for any specific workflow.</strong> No audited benchmark exists and none was run.</li>
+<li><strong>When, or whether, the Notion affiliate program reopens to new applicants.</strong> No reopening date is published anywhere found during this research.</li>
+</ul>
+
+<h2>Verdict</h2>
+<p>&quot;Notion free plan block limit&quot; turns out to be a real limit with a specific, confirmable number &mdash; 1,000 lifetime blocks &mdash; but Notion's own marketing page doesn't print that number anywhere; it only tells you the shape of the restriction and sends you to the help center for the figure. The limit is also newly consequential for anyone automating Notion: a September 2026 change means the same 1,000-block ceiling can now fail an n8n workflow through the API, not just a human typing in the app. Compared against ClickUp (unlimited members, capped storage) and Confluence (capped at 10 users outright), Notion's free tier is the one where the real constraint is easiest to miss until you've already built on top of it.</p>
+<p>More free-tier reality checks from the same series: <a href="clickup-free-plan-unlimited-users-storage.html">ClickUp's free plan</a> found a similar &quot;unlimited headcount, limited elsewhere&quot; shape; <a href="clockify-free-unlimited-users-projects.html">Clockify's free plan</a> found the opposite &mdash; a headcount cap added where there used to be none. <a href="plausible-pricing-10k-pageviews-explained.html">Plausible's pricing breakdown</a> found the same kind of vendor-affiliate-program contradiction as the one documented here. The <a href="best-ai-automation-tools.html">best AI automation tools</a> hub maps where a connected workspace tool sits in a one-person stack, and the <a href="n8n-error-handling-and-retry-workflows.html">n8n error-handling guide</a> is the companion piece if you are automating Notion and want to catch a 403 before it becomes a silent failure.</p>
+
+<h2>FAQ</h2>
+<h3>What is Notion's free plan block limit?</h3>
+<p>A single-member Free workspace has unlimited blocks, confirmed on Notion's own help center. The moment a second member joins, the whole workspace is capped at 1,000 lifetime blocks total, not per person. Deleting blocks does not free up capacity &mdash; Notion's own API reference states this explicitly: &quot;Deleting blocks does not restore capacity.&quot; A 3-day grace period applies once you hit the cap before restrictions begin.</p>
+<h3>Why doesn't Notion's pricing page show the 1,000 number?</h3>
+<p>Notion's live pricing-page comparison table lists the Free row for Pages &amp; blocks as &quot;Unlimited for individuals, limited for 2+ members&quot; &mdash; no number. The actual 1,000-block figure only appears on three separate Notion help-center pages, all of which agree with each other. The marketing page describes the shape of the limit; the support docs are where the number actually lives.</p>
+<h3>Does Notion's free-plan block limit affect n8n or Zapier automations?</h3>
+<p>As of a September 2026 change documented in Notion's own API changelog and reference docs, the 1,000-block limit is now enforced against the REST API for internal integrations and workspace-restricted OAuth connections &mdash; which is how n8n's default Notion credential (an Internal Integration Secret) connects. Zapier's documented setup uses a public OAuth app with no token field, which by Notion's own description of scope sits outside the limit. Make has two options: its internal-token connection is affected, its &quot;Notion Public&quot; OAuth connection is not.</p>
+<h3>Is Notion's own pricing page internally consistent on guest limits?</h3>
+<p>No. Two live Notion pricing-page mirrors read during this research disagree: app.notion.com/pricing and notion.com/pricing both state Plus, Business and Enterprise all get &quot;Unlimited guests,&quot; while notion.so/pricing &mdash; also live the same day &mdash; states Plus gets 100 guests, Business 250, and Enterprise &quot;Starting at 250.&quot; Free is 10 guests on every version. This article reports both readings rather than picking one.</p>
+<h3>Can I still join the Notion affiliate program?</h3>
+<p>Not currently. Notion's own official affiliate page (notion.com/affiliates) displays the notice &quot;Program is currently not accepting new affiliates&quot; as read in this research. Three independent third-party affiliate directories corroborate the closure and also flag that the widely repeated &quot;50% recurring&quot; commission figure is wrong &mdash; Notion's own page states up to $50 per activated signup plus 20% of year-one revenue, not a recurring rate. The <a href="https://notion.so/" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:notion]">plain Notion signup link</a> above reflects that: a placeholder slot with no live code, because there is currently nothing to apply for.</p>
+
+</div></main>
+<footer><div class="wrap">
+<p>StackHonest &mdash; AI automation tools, reviewed by someone who actually runs them. Some links on this site are affiliate links; if you buy through them I earn a commission at no extra cost to you. I only recommend tools I use or have genuinely tested.</p>
+<p><a href="index.html">Home</a> &middot; <a href="about.html">About</a> &middot; <a href="free-n8n-templates.html">Free n8n Templates</a></p>
+</div></footer>
+</body></html>
