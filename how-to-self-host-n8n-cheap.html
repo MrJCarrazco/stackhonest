@@ -23,7 +23,7 @@
 <meta name="twitter:description" content="Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.">
 <meta name="twitter:image" content="https://mrjcarrazco.github.io/stackhonest/og-banner.png">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"Article","headline":"How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS","description":"Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.","url":"https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-18","dateModified":"2026-09-18","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html"},"author":{"@type":"Person","name":"Juan Carrazco","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
+{"@context":"https://schema.org","@type":"Article","headline":"How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS","description":"Self-host n8n for under 5 dollars a month on Hetzner or Hostinger -- exact setup steps, what breaks, and when Cloud is actually cheaper.","url":"https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html","image":"https://mrjcarrazco.github.io/stackhonest/og-banner.png","datePublished":"2026-09-18","dateModified":"2026-09-18","mainEntityOfPage":{"@type":"WebPage","@id":"https://mrjcarrazco.github.io/stackhonest/how-to-self-host-n8n-cheap.html"},"author":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/about.html"},"publisher":{"@type":"Organization","name":"StackHonest","url":"https://mrjcarrazco.github.io/stackhonest/","logo":{"@type":"ImageObject","url":"https://mrjcarrazco.github.io/stackhonest/og-banner.png"}}}
 </script>
 </head>
 <body>
@@ -123,7 +123,7 @@
 </div></header>
 <main><div class="wrap">
 <h1>How to Self-Host n8n Cheap (2026): Step-by-Step on a $4.50 VPS</h1>
-<p class="meta">Last updated September 2026 &middot; ~9 min read &middot; by Juan</p>
+<p class="meta">Last updated September 2026 &middot; ~9 min read &middot; by StackHonest</p>
 <div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every price here is checked directly against the vendor's current pricing page, not a stale roundup.</div>
 
 <p><strong>Short answer:</strong> rent a 2 vCPU / 4GB VPS from Hetzner (about 4.50 to 5 dollars/mo) or <a href="https://www.hostinger.com/vps-hosting" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:hostinger]">Hostinger</a> (about 6.49 to 8.99 dollars/mo intro rate), install Docker, run <a href="https://n8n.io/" rel="nofollow sponsored" data-aff="[AFFILIATE_LINK:n8n]">n8n</a>'s official one-line installer, and point a domain at it with a free Caddy or Nginx reverse proxy for HTTPS. Total time: 30-60 minutes the first time. Total cost: under 5 dollars a month with unlimited workflows and executions, versus 24 dollars/mo minimum for n8n Cloud Starter's capped 2,500 executions.</p>
@@ -148,8 +148,7 @@
 </table>
 <p>The honest catch: a "free" VPS almost never stays free. Some clouds offer trial credits (Oracle Cloud's Always Free tier is the one genuine long-term free option some builders use, though it has its own quirks and is not guaranteed to stay free forever). Budget for the 4-9 dollar range as your real number, not zero.</p>
 
-<h2>Step-by-step with screenshots</h2>
-<p>[JUAN: add screenshots of your actual Hetzner console + first n8n login screen here once you run through this on a real box -- readers trust this section more with real screenshots than stock images.]</p>
+<h2>Step-by-step</h2>
 <p>1. <strong>Create the VPS.</strong> Pick Ubuntu 22.04 or 24.04 as the OS image, 2 vCPU / 4GB RAM minimum. Note the IP address you are given.</p>
 <p>2. <strong>SSH in</strong> and update packages first.</p>
 <p>3. <strong>Run the n8n installer.</strong> As of the 2026 release line, n8n recommends its one-line install command over the older manual Docker Compose file -- it checks for Docker, creates an n8n folder, writes a compose file and .env with generated secrets, and starts the container automatically. First run pulls the image and can take a few minutes.</p>

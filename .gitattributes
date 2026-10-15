@@ -29,3 +29,8 @@
 *.gz     binary
 *.mp4    binary
 *.mp3    binary
+
+# Brand repair manifests hash LF serving bytes; keep fresh checkouts identical.
+*.html   text eol=lf
+*.htm    text eol=lf
+
