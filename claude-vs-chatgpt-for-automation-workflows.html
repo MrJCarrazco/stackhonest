@@ -10,7 +10,7 @@
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
 {"@type":"Question","name":"Is Claude or ChatGPT cheaper for automation workflows?","acceptedAnswer":{"@type":"Answer","text":"Per raw token price, OpenAI's budget tier (GPT-6 Luna) undercuts Claude at the low end. But Claude Sonnet 5 holds a flat rate up to 1M tokens with no long-context surcharge, while GPT-6 Astra (OpenAI's flagship) doubles input price and adds 1.5x output cost past 272K tokens -- so Claude often wins on large-document or long-running-agent workflows despite a higher sticker price."}},
-{"@type":"Question","name":"Which model is better for AI agent nodes in n8n?","acceptedAnswer":{"@type":"Answer","text":"Claude Sonnet models are the more common default in n8n's AI Agent node community templates because of consistent tool-calling and lower hallucination rate on multi-step chains. ChatGPT (GPT-6 Sol/Astra) works fine too and is often cheaper for simple, low-step automations."}},
+{"@type":"Question","name":"Which model is better for AI agent nodes in n8n?","acceptedAnswer":{"@type":"Answer","text":"As a starting point, compare Claude and ChatGPT on the same representative workflow. Check malformed tool calls, task completion and total cost; this page supplies no comparative tool-call benchmark."}},
 {"@type":"Question","name":"Can I use both Claude and ChatGPT in the same n8n workflow?","acceptedAnswer":{"@type":"Answer","text":"Yes, and a lot of production workflows do -- route cheap, high-volume classification steps to a budget model (GPT-6 Luna or Claude Haiku) and reserve the expensive flagship call for the one step that actually needs top-tier reasoning."}}
 ]}</script>
 <meta property="og:type" content="article">
@@ -131,7 +131,7 @@
 <h1>Claude vs ChatGPT for Automation Workflows (2026): Which LLM to Wire Into n8n</h1>
 <p class="meta">Last updated October 2026 &middot; ~7 min read &middot; by StackHonest</p>
 <div class="disclosure"><strong>Affiliate disclosure:</strong> some links below are affiliate links. If you sign up through them I earn a commission at no extra cost to you. Every comparison here is researched from vendor documentation and current pricing pages -- I will tell you when something is not worth your money.</div>
-<p><strong>Short answer:</strong> for most n8n AI Agent nodes, Claude Sonnet is the safer default -- more consistent tool-calling on multi-step chains and a flat per-token rate up to 1M context with no long-context surcharge. ChatGPT's budget tier (GPT-6 Luna) is cheaper for simple, high-volume, single-step calls like classification or summarization. Most of my production workflows now mix both.</p>
+<p><strong>Short answer:</strong> For an n8n workflow, compare Claude and ChatGPT on representative tasks, then route each step based on observed completion, malformed tool calls and API cost. This page supplies no comparative tool-call benchmark.</p>
 
 <h2>The 30-second answer</h2>
 <div class="verdict"><strong>Pick Claude</strong> (Sonnet or Opus, via API) for AI Agent nodes doing multi-step reasoning, tool-calling, or long-document work inside <a href="https://n8n.io/">n8n</a>. <strong>Pick ChatGPT</strong> (GPT-6 Sol or Luna) for cheap, high-volume, single-shot tasks -- classify this ticket, summarize this email, extract this field. Do not pick one model for the whole pipeline -- route by step.</div>
@@ -181,7 +181,7 @@
 
 <h2>FAQ</h2>
 <h3>Is Claude or ChatGPT cheaper for automation workflows?</h3><p>Depends on context length. Under about 270K tokens per call, OpenAI's budget tiers are cheaper. Past that, Claude's flat-rate pricing (no long-context surcharge) usually wins.</p>
-<h3>Which model is better for AI agent nodes in n8n?</h3><p>Claude Sonnet for multi-step tool-calling chains -- more consistent, fewer malformed function calls in my experience. ChatGPT is fine for single-step calls.</p>
+<h3>Which model is better for AI agent nodes in n8n?</h3><p>As a starting point, compare Claude and ChatGPT on the same representative workflow. Check malformed tool calls, task completion and total cost; this page supplies no comparative tool-call benchmark.</p>
 <h3>Can I use both in the same n8n workflow?</h3><p>Yes -- and you probably should. Route by step complexity and cost sensitivity rather than picking one model for everything.</p>
 <p>The <a href="free-n8n-templates.html">Template availability</a> currently offers no download or email signup. Related reading: <a href="n8n-vs-make.html">n8n vs Make</a> · <a href="best-ai-automation-tools.html">Best AI Automation Tools in 2026</a>.</p>
 </div></main>
